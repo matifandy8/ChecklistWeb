@@ -5,16 +5,10 @@ export default function Navbar() {
   return (
     <nav className="nav">
       <div className="navbar-container">
-        <h1>Navbar</h1>
+        <h1 className="nav-logo">DevChecklist</h1>
         <ul className="nav-links">
-          <li className="nav-item">
-            <Link href="/">Home</Link>
-          </li>
-          <li className="nav-item">
-            <Link href="/about">About</Link>
-          </li>
-          <li className="nav-item">
-            <Link href="/contact">Contact</Link>
+          <li className="nav-item nb-button orange rounded">
+            <Link href="/demo">Demo</Link>
           </li>
         </ul>
       </div>
