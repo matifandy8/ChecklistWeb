@@ -7,9 +7,9 @@ export default function Home() {
       <section className="section">
         <div className="container">
           <div className="content">
-            <h1>Welcome to DevChecklists</h1>
+            <h1>Welcome to ChecklistWeb</h1>
             <h2>
-              DevChecklists is the ultimate platform for developers and teams,
+              ChecklistWeb is the ultimate platform for developers and teams,
               offering a seamless checklist management experience. Whether
               you&apos;re working on a solo project or collaborating with a
               team, our feature-rich platform empowers
