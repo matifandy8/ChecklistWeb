@@ -1,13 +1,25 @@
 import Link from "next/link";
 import "./Home.styles.css";
+import Image from "next/image";
+import checkIcon from "/public/check-square.png";
 
 export default function Home() {
   return (
     <main>
-      <section className="section">
-        <div className="container">
-          <div className="content">
-            <h1>Welcome to ChecklistWeb</h1>
+      <section className="hero__section">
+        <div className="hero__container">
+          <div className="hero__content">
+            <h1>
+              <div className="title-inner">
+                Checklist
+                <div className="badge">
+                  <div className="badge-inner">
+                    <div className="badge-text">Excellence</div>
+                  </div>
+                </div>{" "}
+              </div>
+              <span>for Dev Success</span>
+            </h1>
             <h2>
               ChecklistWeb is the ultimate platform for developers and teams,
               offering a seamless checklist management experience. Whether
@@ -23,15 +35,78 @@ export default function Home() {
 
       <section className="features">
         <div className="features__container">
+          <h3 className="features__title">Features</h3>
           <div className="feature__content">
-            <h2>Features</h2>
-            <ul>
-              <li>Manage your checklists</li>
-              <li>Track your progress</li>
-              <li>Create your own checklist</li>
-              <li>Share your checklists</li>
-            </ul>
+            <div className="feature__item dialog">
+              <div className="feature__icon avatar">
+                <Image
+                  src={checkIcon}
+                  alt="Create Checklist Icon"
+                  width={30}
+                  height={30}
+                />
+              </div>
+              <p>
+                Easily create and tailor checklists to perfectly fit your unique
+                workflow.
+              </p>
+            </div>
+            <div className="feature__item dialog">
+              <div className="feature__icon avatar">
+                <Image
+                  src={checkIcon}
+                  alt="Accelerate Icon"
+                  width={30}
+                  height={30}
+                />
+              </div>
+              <p>
+                Speed up your development projects and achieve your goals with
+                efficiency.
+              </p>
+            </div>
+            <div className="feature__item dialog">
+              <div className="feature__icon avatar">
+                <Image
+                  src={checkIcon}
+                  alt="Never Miss Icon"
+                  width={30}
+                  height={30}
+                />
+              </div>
+              <p>
+                Say goodbye to missed steps in your development process with
+                we&apos;ve got you covered.
+              </p>
+            </div>
+            <div className="feature__item dialog">
+              <div className="feature__icon avatar">
+                <Image
+                  src={checkIcon}
+                  alt="Organize Icon"
+                  width={30}
+                  height={30}
+                />
+              </div>
+              <p>
+                Organize and categorize your tasks for improved clarity and
+                productivity.
+              </p>
+            </div>
           </div>
+        </div>
+      </section>
+
+      <section className="waitlist">
+        <div className="waitlist__container">
+          <h3 className="waitlist__title">Waitlist</h3>
+          <p>
+            Join our waitlist to stay up-to-date with our latest news and
+            announcements.
+          </p>
+          <button className="nb-button orange rounded">
+            <Link href="/waitlist">Join Waitlist</Link>
+          </button>
         </div>
       </section>
     </main>
