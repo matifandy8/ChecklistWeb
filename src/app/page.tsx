@@ -104,9 +104,27 @@ export default function Home() {
             Join our waitlist to stay up-to-date with our latest news and
             announcements.
           </p>
-          <button className="nb-button orange rounded">
-            <Link href="/waitlist">Join Waitlist</Link>
-          </button>
+
+          <input type="checkbox" id="modal" />
+          <label htmlFor="modal" className="nb-button rounded green">
+            Join Waitlist
+          </label>
+          <label htmlFor="modal" className="modal-background"></label>
+          <div className="modal dialog">
+            <div className="modal-header">
+              <h3> Join our waitlist </h3>
+              <label htmlFor="modal" className="close">
+                X
+              </label>
+            </div>
+            <p> Thank you for your interest! We&apos;ll be in touch soon. </p>
+            <input
+              type="email"
+              placeholder="Enter your email"
+              className="nb-input default"
+            />
+            <button className="nb-button orange rounded">Join Waitlist</button>
+          </div>
         </div>
       </section>
     </main>

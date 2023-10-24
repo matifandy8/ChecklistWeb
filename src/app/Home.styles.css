@@ -108,4 +108,13 @@ p {
 .nb-button {
   align-self: center;
   width: fit-content;
+  margin: 15px;
+}
+.nb-input {
+  margin: 15px;
+}
+
+.modal {
+  width: 400px;
+  height: 340px;
 }
