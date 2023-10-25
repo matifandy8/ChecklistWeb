@@ -2,6 +2,28 @@ import Link from "next/link";
 import "./Home.styles.css";
 import Image from "next/image";
 import checkIcon from "/public/check-square.png";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "ChecklistWeb - Home",
+  description:
+    "platform for developers and teams, offering a seamless checklist management experience.",
+  openGraph: {
+    type: "website",
+    url: "https://localhost:3000",
+    title: "ChecklistWeb - Home",
+    description:
+      "platform for developers and teams, offering a seamless checklist management experience.",
+    images: [
+      {
+        url: "https://localhost:3000/logo.png",
+        width: 800,
+        height: 600,
+        alt: "ChecklistWeb - Home",
+      },
+    ],
+  },
+};
 
 export default function Home() {
   return (
@@ -38,7 +60,7 @@ export default function Home() {
           <h3 className="features__title">Features</h3>
           <div className="feature__content">
             <div className="feature__item dialog">
-              <div className="feature__icon avatar">
+              <div className="feature__icon avatar bg-green">
                 <Image
                   src={checkIcon}
                   alt="Create Checklist Icon"
@@ -52,7 +74,7 @@ export default function Home() {
               </p>
             </div>
             <div className="feature__item dialog">
-              <div className="feature__icon avatar">
+              <div className="feature__icon avatar bg-green">
                 <Image
                   src={checkIcon}
                   alt="Accelerate Icon"
@@ -66,7 +88,7 @@ export default function Home() {
               </p>
             </div>
             <div className="feature__item dialog">
-              <div className="feature__icon avatar">
+              <div className="feature__icon avatar bg-green">
                 <Image
                   src={checkIcon}
                   alt="Never Miss Icon"
@@ -80,7 +102,7 @@ export default function Home() {
               </p>
             </div>
             <div className="feature__item dialog">
-              <div className="feature__icon avatar">
+              <div className="feature__icon avatar bg-green">
                 <Image
                   src={checkIcon}
                   alt="Organize Icon"
@@ -120,6 +142,7 @@ export default function Home() {
             <p> Thank you for your interest! We&apos;ll be in touch soon. </p>
             <input
               type="email"
+              autoComplete="email"
               placeholder="Enter your email"
               className="nb-input default"
             />
