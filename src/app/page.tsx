@@ -3,6 +3,7 @@ import "./Home.styles.css";
 import Image from "next/image";
 import checkIcon from "/public/check-square.png";
 import { Metadata } from "next";
+import Waitlist from "@/components/Waitlist/Waitlist";
 
 export const metadata: Metadata = {
   title: "ChecklistWeb - Home",
@@ -118,38 +119,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <section className="waitlist">
-        <div className="waitlist__container">
-          <h3 className="waitlist__title">Waitlist</h3>
-          <p>
-            Join our waitlist to stay up-to-date with our latest news and
-            announcements.
-          </p>
-
-          <input type="checkbox" id="modal" />
-          <label htmlFor="modal" className="nb-button rounded green">
-            Join Waitlist
-          </label>
-          <label htmlFor="modal" className="modal-background"></label>
-          <div className="modal dialog">
-            <div className="modal-header">
-              <h3> Join our waitlist </h3>
-              <label htmlFor="modal" className="close">
-                X
-              </label>
-            </div>
-            <p> Thank you for your interest! We&apos;ll be in touch soon. </p>
-            <input
-              type="email"
-              autoComplete="email"
-              placeholder="Enter your email"
-              className="nb-input default"
-            />
-            <button className="nb-button orange rounded">Join Waitlist</button>
-          </div>
-        </div>
-      </section>
+      <Waitlist />
     </main>
   );
 }
