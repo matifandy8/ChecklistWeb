@@ -11,21 +11,27 @@ export default function Waitlist() {
     e.preventDefault();
     if (!emailInput) {
       alert("Please enter your email address");
+      return;
     }
 
     setButtonLoading(true);
     try {
       const res = await fetch("/api/subscribe", {
         method: "POST",
-        body: JSON.stringify({ email: emailInput }),
+        body: JSON.stringify({ email: emailInput, }),
       });
       const data = await res.json();
 
-      if (data.success) {
-        alert("Thank you for joining our waitlist! We'll be in touch soon.");
+      if (data.status == "400") {
+        alert(" You are already subscribed");
+      } else if (data.status == "subscribed") {
+        console.log(data.status)
+        alert(" You are now subscribed");
+        setEmailInput("");
+        setButtonLoading(false);
       } else {
         throw new Error(
-          data?.error || "Something went wrong, please try again later"
+          data.message || alert(data.message)
         );
       }
     } catch (e: any) {
