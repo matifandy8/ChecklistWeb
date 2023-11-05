@@ -1,46 +1,60 @@
 "use client";
 
-import { ChangeEvent, FormEvent, useState } from "react";
-import "./styles.css";
+import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import "./styles.css"
+import * as Yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup"
 
+interface FormData {
+  email: string;
+};
+const requiredSchema = Yup.object().shape({
+  email: Yup.string()
+    .email("Invalid email format")
+    .required("Email is required")
+    .matches(
+      /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+      "Invalid email format"
+    )
+    .max(255, "Email is too long")
+});
 export default function Waitlist() {
-  const [emailInput, setEmailInput] = useState("");
-  const [buttonLoading, setButtonLoading] = useState(false);
+  const { register, handleSubmit, formState: { errors }, reset } = useForm({
+    resolver: yupResolver(requiredSchema),
+  });
+  const [successMessage, setSuccessMessage] = useState('');
 
-  const handleFormSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (!emailInput) {
-      alert("Please enter your email address");
-      return;
-    }
 
-    setButtonLoading(true);
+  const handleFormSubmit = async (data: FormData) => {
     try {
       const res = await fetch("/api/subscribe", {
         method: "POST",
-        body: JSON.stringify({ email: emailInput, }),
+        body: JSON.stringify({ email: data.email }),
       });
-      const data = await res.json();
+      const response = await res.json();
 
-      if (data.status == "400") {
-        alert(" You are already subscribed");
-      } else if (data.status == "subscribed") {
-        console.log(data.status)
-        alert(" You are now subscribed");
-        setEmailInput("");
-        setButtonLoading(false);
+      if (response.status === 400) {
+        console.log(response)
+        setSuccessMessage("You are already subscribed");
+        reset();
+      } else if (response.status === 400 && response.title === "Invalid Resource") {
+        setSuccessMessage("Please enter a valid email address");
+        reset();
+      } else if (response.status === "subscribed") {
+        setSuccessMessage("You are now subscribed");
+        reset();
       } else {
-        throw new Error(
-          data.message || alert(data.message)
-        );
+        throw new Error(response.message || alert(response.message));
       }
-    } catch (e: any) {
-      alert(e.message);
+    } catch (error: any) {
+      alert(error.message);
     }
-
-    setEmailInput("");
-    setButtonLoading(false);
   };
+  const handleInputChange = () => {
+    setSuccessMessage(''); 
+  };
+
   return (
     <section className="waitlist">
       <div className="waitlist__container">
@@ -62,17 +76,19 @@ export default function Waitlist() {
               X
             </label>
           </div>
-          <p> Thank you for your interest! We&apos;ll be in touch soon. </p>
-          <form onSubmit={handleFormSubmit}>
+          <p> Thank you for your interest! We'll be in touch soon. </p>
+          <form onSubmit={handleSubmit(handleFormSubmit)}>
             <input
               type="email"
               autoComplete="email"
               placeholder="Enter your email"
               className="nb-input default"
-              onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                setEmailInput(e.target.value)
-              }
+              onFocus={handleInputChange}
+              {...register("email", { required: true })}
             />
+            {errors.email && <p className="error">Please enter a valid email</p>}  
+            {successMessage && <p className="success">{successMessage}</p>}
+          
             <button type="submit" className="nb-button orange rounded">
               Join Waitlist
             </button>

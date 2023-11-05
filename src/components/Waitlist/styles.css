@@ -25,3 +25,17 @@
 .modal {
   height: 340px;
 }
+.error {
+  color: red;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.success {
+  color: green;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
