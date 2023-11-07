@@ -35,14 +35,25 @@ export default function Waitlist() {
       const response = await res.json();
 
       if (response.status === 400) {
-        console.log(response)
         setSuccessMessage("You are already subscribed");
+        console.log(data.email);
+        const res = await fetch("/api/send", {
+          method: "POST",
+          body: JSON.stringify({ email: data.email }),
+        })
+        const responsedata = await res.json();
+        console.log(responsedata);
         reset();
       } else if (response.status === 400 && response.title === "Invalid Resource") {
         setSuccessMessage("Please enter a valid email address");
         reset();
       } else if (response.status === "subscribed") {
         setSuccessMessage("You are now subscribed");
+        // fetch api send email
+        await fetch("/api/send", {
+          method: "POST",
+          body: JSON.stringify({ email: data.email }),
+        });
         reset();
       } else {
         throw new Error(response.message || alert(response.message));
