@@ -4,6 +4,7 @@
   padding: 0px 0px 40px 0px;
   justify-content: center;
 }
+
 .waitlist__container {
   padding: 100px 20px;
   display: flex;
@@ -12,30 +13,42 @@
   gap: 20px;
   max-width: 830px;
 }
+.modal{
+  width: 100%;
+  max-width: 500px;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+@media screen and (max-width: 768px) {
+  form {
+    gap: 0px;
+  }
+}
 
 .nb-button {
   align-self: center;
   width: fit-content;
-  margin: 15px;
+  margin: 10px 0px;
 }
+
 .nb-input {
-  margin: 15px;
+  margin: 10px 0px;
 }
 
 .modal {
-  height: 340px;
+  height: 365px;
 }
-.error {
-  color: red;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 5px;
-  margin-bottom: 5px;
+
+.alert.success {
+  font-size: 16px;
+  padding: 0.5rem;
 }
-.success {
-  color: green;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 5px;
-  margin-bottom: 5px;
+
+.alert.error {
+  font-size: 16px;
+  padding: 0.5rem;
 }

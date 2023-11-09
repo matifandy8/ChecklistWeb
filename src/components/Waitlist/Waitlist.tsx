@@ -36,20 +36,12 @@ export default function Waitlist() {
 
       if (response.status === 400) {
         setSuccessMessage("You are already subscribed");
-        console.log(data.email);
-        const res = await fetch("/api/send", {
-          method: "POST",
-          body: JSON.stringify({ email: data.email }),
-        })
-        const responsedata = await res.json();
-        console.log(responsedata);
         reset();
       } else if (response.status === 400 && response.title === "Invalid Resource") {
         setSuccessMessage("Please enter a valid email address");
         reset();
       } else if (response.status === "subscribed") {
         setSuccessMessage("You are now subscribed");
-        // fetch api send email
         await fetch("/api/send", {
           method: "POST",
           body: JSON.stringify({ email: data.email }),
@@ -97,9 +89,8 @@ export default function Waitlist() {
               onFocus={handleInputChange}
               {...register("email", { required: true })}
             />
-            {errors.email && <p className="error">Please enter a valid email</p>}  
-            {successMessage && <p className="success">{successMessage}</p>}
-          
+              {errors.email && <p className="alert error">Please enter a valid email</p>}  
+              {successMessage && <p className="alert success">{successMessage}</p>}
             <button type="submit" className="nb-button orange rounded">
               Join Waitlist
             </button>

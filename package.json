@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.2",
-    "neobrutalismcss": "^0.2.6",
+    "neobrutalismcss": "^0.3.7",
     "next": "13.5.5",
     "react": "^18",
     "react-dom": "^18",
