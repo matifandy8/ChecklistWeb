@@ -1,0 +1,41 @@
+.demo{
+    height: 100vh;
+    background-color: #f1f6f1;
+}
+h1{
+    text-align: center;
+    font-size: 3rem;
+    font-family: var(--font-space-grotesk);
+    padding-top: 48px;
+    margin-bottom: 24px;
+}
+.demo__container{
+    max-width: 1280px;
+    margin: 48px auto 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 48px;
+}
+.accordion{
+    box-shadow: none; 
+    border: none; 
+
+}
+.nb-label{
+    justify-content: space-between;
+    padding: 5px 0px;
+    color: black;
+    text-transform: none;
+}
+
+.title{
+    font-size: 1.5rem;
+    font-family: var(--font-space-grotesk);
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.nb-checkbox:checked + input {
+    color: green; /* Change label color when checkbox is checked */
+}

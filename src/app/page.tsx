@@ -49,9 +49,7 @@ export default function Home() {
               you&apos;re working on a solo project or collaborating with a
               team, our feature-rich platform empowers
             </h2>
-            <button className="nb-button orange rounded">
-              <Link href="/demo">Get Started</Link>
-            </button>
+              <Link href="/demo" className="nb-button orange rounded">Get Started</Link>
           </div>
         </div>
       </section>
