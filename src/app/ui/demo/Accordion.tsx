@@ -1,4 +1,4 @@
-export default function Accordion({title, content, id}: {title: string, content: string, id: string}) {
+export default function Accordion({title, links, id}: {title: string, id: string, links: {title: string, url: string}[]}) {
     return (
         <div className="accordion">
             <input type="checkbox" id={id} className="accordion-tab" />
@@ -7,7 +7,13 @@ export default function Accordion({title, content, id}: {title: string, content:
                 <input type="checkbox" id="" className="nb-checkbox" name="" value="" />
             </label>
             <div className="accordion-content">
-                {content}
+                <ul>
+                    {links.map((link) => (
+                        <li key={link.title}>
+                            <a href={link.url}>{link.title}</a>
+                        </li>
+                    ))}
+                </ul>
             </div>
         </div>
     );
