@@ -7,11 +7,9 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export async function POST(req: Request, res: NextApiResponse) {
   try {
     const requestData = await req.json();
-    console.log("requestData:", requestData);
 
     const { email } = requestData;
-    console.log("email:", email);
-
+    
     if (!email) {
       return res.status(400).json({ error: 'Email is required' });
     }

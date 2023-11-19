@@ -17,6 +17,9 @@ h1{
     justify-content: center;
     gap: 48px;
 }
+.dialog {
+    height: fit-content;
+}
 .accordion{
     box-shadow: none; 
     border: none; 

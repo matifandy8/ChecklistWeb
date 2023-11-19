@@ -4,13 +4,9 @@ export const PerformanceData = [
         "title": "Google Page Speed score of 90+",
         "links": [
             {
-                "url": "https://ahrefs.com/broken-link-checke",
-                "title": "ahrefs.com/broken-link-checker",
+                "url": "https://pagespeed.web.dev/",
+                "title": "Google PageSpeed Insights",
             },
-            {
-                "url": "https://ahrefs.com/broken-link-checker",
-                "title": "ahrefs.com/broken-link-checker",
-            }
         ]
     },
     {
@@ -18,13 +14,9 @@ export const PerformanceData = [
         "title": "Optimize HTTP headers",
         "links": [
             {
-                "url": "https://ahrefs.com/broken-link-checke",
-                "title": "ahrefs.com/broken-link-checker",
+                "url": "https://redbot.org/",
+                "title": "redbot.org",
             },
-            {
-                "url": "https://ahrefs.com/broken-link-checker",
-                "title": "ahrefs.com/broken-link-checker",
-            }
         ]
     },
     {
@@ -32,12 +24,12 @@ export const PerformanceData = [
         "title": "Optimize Images",
         "links": [
             {
-                "url": "https://ahrefs.com/broken-link-checke",
-                "title": "ahrefs.com/broken-link-checker",
+                "url": "https://tinypng.com/",
+                "title": "TinyPNG",
             },
             {
-                "url": "https://ahrefs.com/broken-link-checker",
-                "title": "ahrefs.com/broken-link-checker",
+                "url": "https://imagecompressor.com/",
+                "title": "imagecompressor.com",
             }
         ]
     }
@@ -50,13 +42,9 @@ export const BestPracticesData = [
         "links": [
             {
                 "url": "https://ahrefs.com/broken-link-checke",
-                "title": "ahrefs.com/broken-link-checker",
+                "title": "broken-link-checker",
 
             },
-            {
-                "url": "https://ahrefs.com/broken-link-checker",
-                "title": "ahrefs.com/broken-link-checker",
-            }
         ]
     },
     {
@@ -64,13 +52,13 @@ export const BestPracticesData = [
         "title": "Spelling and grammar",
         "links": [
             {
-                "url": "https://ahrefs.com/broken-link-checke",
-                "title": "ahrefs.com/broken-link-checker",
+                "url": "https://en.wikipedia.org/wiki/Capitalization",
+                "title": "Capitalization",
 
             },
             {
-                "url": "https://ahrefs.com/broken-link-checker",
-                "title": "ahrefs.com/broken-link-checker",
+                "url": "https://en.wikipedia.org/wiki/Writing_style",
+                "title": "Writing Style",
             }
         ]
     },
@@ -79,13 +67,13 @@ export const BestPracticesData = [
         "title": "Check website on all browsers",
         "links": [
             {
-                "url": "https://ahrefs.com/broken-link-checke",
-                "title": "ahrefs.com/broken-link-checker",
+                "url": "https://www.browserstack.com/",
+                "title": "BrowserStack",
 
             },
             {
-                "url": "https://ahrefs.com/broken-link-checker",
-                "title": "ahrefs.com/broken-link-checker",
+                "url": "https://smartbear.com/product/bitbar/",
+                "title": "CrossBrowserTesting",
             }
         ]
     }
@@ -97,13 +85,13 @@ export const UsabilityData = [
         "title": "HTML5/CSS3 compatibility check",
         "links": [
             {
-                "url": "https://ahrefs.com/broken-link-checke",
-                "title": "ahrefs.com/broken-link-checker",
+                "url": "https://caniuse.com/",
+                "title": "Can I Use",
 
             },
             {
-                "url": "https://ahrefs.com/broken-link-checker",
-                "title": "ahrefs.com/broken-link-checker",
+                "url": "https://modernizr.com/",
+                "title": "Modernizr JS library",
             }
         ]
     },
@@ -112,14 +100,10 @@ export const UsabilityData = [
         "title": "Custom 404 page",
         "links": [
             {
-                "url": "https://ahrefs.com/broken-link-checke",
-                "title": "ahrefs.com/broken-link-checker",
+                "url": "https://alistapart.com/article/amoreuseful404/",
+                "title": "A more useful 404",
 
             },
-            {
-                "url": "https://ahrefs.com/broken-link-checker",
-                "title": "ahrefs.com/broken-link-checker",
-            }
         ]
     },
     {
@@ -127,13 +111,13 @@ export const UsabilityData = [
         "title": "Favicon",
         "links": [
             {
-                "url": "https://ahrefs.com/broken-link-checke",
-                "title": "ahrefs.com/broken-link-checker",
+                "url": "https://realfavicongenerator.net/",
+                "title": "Real Favicon Generator",
 
             },
             {
-                "url": "https://ahrefs.com/broken-link-checker",
-                "title": "ahrefs.com/broken-link-checker",
+                "url": "https://github.com/audreyfeldroy/favicon-cheat-sheet",
+                "title": "Favicon Cheat Sheet",
             }
         ]
     }

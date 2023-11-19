@@ -2,7 +2,6 @@ import CategorySection from "../ui/demo/CategorySection";
 import "./Demo.styles.css";
 const { BestPracticesData, PerformanceData, UsabilityData } = require('../lib/data');
 export default function demo() {
-    console.log(BestPracticesData);
     
     return (
         <section className="demo">

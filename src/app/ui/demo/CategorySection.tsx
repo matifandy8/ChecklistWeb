@@ -11,7 +11,6 @@ export default function CategorySection({
     title,
     data,
 }: CategorySectionProps) {
-    console.log(data);
     return (
         <div className="dialog">
             <h3 className="title">{title}</h3>

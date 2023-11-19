@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Accordion({title, links, id}: {title: string, id: string, links: {title: string, url: string}[]}) {
     return (
         <div className="accordion">
@@ -10,7 +12,7 @@ export default function Accordion({title, links, id}: {title: string, id: string
                 <ul>
                     {links.map((link) => (
                         <li key={link.title}>
-                            <a href={link.url}>{link.title}</a>
+                            <Link href={link.url} rel="noopener noreferrer" target="_blank">{link.title}</Link>
                         </li>
                     ))}
                 </ul>
