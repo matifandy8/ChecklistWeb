@@ -42,3 +42,25 @@ h1{
 .nb-checkbox:checked + input {
     color: green; /* Change label color when checkbox is checked */
 }
+
+.accordion-content ul li{
+    color: var(--tw-prose-links);
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+.progress-bar{
+    background-color: #f1f1f1!important;
+    width: 50%;
+    border-radius: 20px;
+    filter: drop-shadow(4px 4px 0px #000);
+    border: 3px solid #000;
+    margin: 20px auto;
+}
+.progress-bar__progress{
+    background-color: green;
+    color: white;
+    border-radius: 20px;
+    text-align: center;
+    padding: 5px;
+}
