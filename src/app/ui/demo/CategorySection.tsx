@@ -1,17 +1,13 @@
 import React from 'react';
 import Accordion from './Accordion';
-import { Category } from '@/app/lib/types';
+import { Category, CategorySectionProps } from '@/app/lib/types';
 
-interface CategorySectionProps {
-    title: string;
-    data: Category[];
-    onCheckboxChange: (value: string, checked: boolean) => void;
-}
 
 export default function CategorySection({
     title,
     data,
     onCheckboxChange,
+    checkedItems
 }: CategorySectionProps) {
     return (
         <div className="dialog">
@@ -23,6 +19,7 @@ export default function CategorySection({
                     id={item.id}
                     links={item.links}
                     onCheckboxChange={onCheckboxChange}
+                    checkedItems={checkedItems}
                 />
             ))}
         </div>
