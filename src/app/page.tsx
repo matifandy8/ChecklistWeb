@@ -31,7 +31,7 @@ export default function Home() {
     <main>
       <section className="hero__section">
         <div className="hero__container">
-          <div className="hero__content">
+          <div className="hero__content animated">
             <h1>
               <div className="title-inner">
                 Checklist
@@ -58,7 +58,7 @@ export default function Home() {
         <div className="features__container">
           <h3 className="features__title">Features</h3>
           <div className="feature__content">
-            <div className="feature__item dialog">
+            <div className="feature__item dialog animated">
               <div className="feature__icon avatar bg-green">
                 <Image
                   src={checkIcon}
@@ -72,7 +72,7 @@ export default function Home() {
                 workflow.
               </p>
             </div>
-            <div className="feature__item dialog">
+            <div className="feature__item dialog animated">
               <div className="feature__icon avatar bg-green">
                 <Image
                   src={checkIcon}
@@ -86,7 +86,7 @@ export default function Home() {
                 efficiency.
               </p>
             </div>
-            <div className="feature__item dialog">
+            <div className="feature__item dialog animated">
               <div className="feature__icon avatar bg-green">
                 <Image
                   src={checkIcon}
@@ -100,7 +100,7 @@ export default function Home() {
                 we&apos;ve got you covered.
               </p>
             </div>
-            <div className="feature__item dialog">
+            <div className="feature__item dialog animated">
               <div className="feature__icon avatar bg-green">
                 <Image
                   src={checkIcon}

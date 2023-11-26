@@ -10,7 +10,7 @@ export default function CategorySection({
     checkedItems
 }: CategorySectionProps) {
     return (
-        <div className="dialog">
+        <div className="dialog animated">
             <h3 className="title">{title}</h3>
             {data?.map((item: Category) => (
                 <Accordion

@@ -11,6 +11,7 @@ body {
 }
 
 body {
+  background-color: #f1f6f1;
 }
 
 a {
@@ -23,3 +24,43 @@ a {
     color-scheme: dark;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+/* ANIMATIONS */
+
+
+
+.animated {
+  opacity: 0;
+  transform: translateX(100%);
+  animation: slideInFromRight 1s forwards;
+}
+
+@keyframes slideInFromRight {
+  to {
+      opacity: 1;
+      transform: translateX(0);
+  }
+}
+@keyframes fade {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+
+
+/* ANIMATIONS */
