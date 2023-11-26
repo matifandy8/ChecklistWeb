@@ -1,8 +1,9 @@
 "use client";
-import React, { useState } from 'react';
+import React, { Suspense, useState } from 'react';
 import CategorySection from "../ui/demo/CategorySection";
 import ProgressBar from "../ui/demo/ProgressBar";
 import "./Demo.styles.css";
+import Loading from '../loading';
 const { websiteData } = require('../lib/data');
 
 export default function Demo() {
@@ -33,6 +34,7 @@ export default function Demo() {
         <section className="demo">
             <h1>Demo</h1>
             <div className="demo__container">
+            <Suspense fallback={<Loading/>}>
                 {websiteData?.map((item: any) => (
                     <CategorySection
                         key={item.id}
@@ -42,6 +44,7 @@ export default function Demo() {
                         checkedItems={checkedItems}
                     />
                 ))}
+            </Suspense>
             </div>
             <ProgressBar completes={checkedItems.length} totalItems={totalItems} />
             <div className="demo__reset">
