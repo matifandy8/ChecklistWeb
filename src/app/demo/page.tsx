@@ -47,6 +47,9 @@ export default function Demo() {
             </Suspense>
             </div>
             <ProgressBar completes={checkedItems.length} totalItems={totalItems} />
+            <p className='demo__completed'>
+                You have completed <strong>{checkedItems.length}</strong> out of <strong>{totalItems}</strong>
+            </p>
             <div className="demo__reset">
                 <button className='nb-button orange rounded' onClick={handleResetCheckboxes}>Reset</button>
             </div>

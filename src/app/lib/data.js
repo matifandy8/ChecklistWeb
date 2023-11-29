@@ -132,5 +132,81 @@ export const websiteData = [
                 ]
             }
         ]
+    },
+    {
+        id: "4",
+        category: "Accessibility",
+        data: [
+            {
+                "id": "tab10",
+                "title": "Links",
+                "links": [
+                    {
+                        "url": "https://usability.yale.edu/web-accessibility/articles/links",
+                        "title": "Usability.Yale.edu",
+        
+                    }
+                ]
+            },
+            {
+                "id": "tab11",
+                "title": " Color and Contrast",
+                "links": [
+                    {
+                        "url": "https://webaim.org/resources/contrastchecker",
+                        "title": "WebAIM",
+        
+                    },
+                ]
+            },
+            {
+                "id": "tab12",
+                "title": "Keyboard Navigation",
+                "links": [
+                    {
+                        "url": "https://webaim.org/techniques/keyboard/",
+                        "title": "WebAIM",
+        
+                    },
+                ]
+            }
+        ]
+    },
+    {
+        id: "5",
+        category: "Security",
+        data: [
+            {
+                "id": "tab13",
+                "title": "HSTS Preload",
+                "links": [
+                    {
+                        "url": "https://hstspreload.org/",
+                        "title": "HSTS Preload",
+                    }
+                ]
+            },
+            {
+                "id": "tab14",
+                "title": "HTTPS (SSL/TLS)",
+                "links": [
+                    {
+                        "url": "https://en.wikipedia.org/wiki/HTTPS",
+                        "title": "HTTPS",
+                    }
+                ]
+            },
+            {
+                
+                "id": "tab15",
+                "title": "Content Security Policy (CSP)",
+                "links": [
+                    {
+                        "url": "https://csp-evaluator.withgoogle.com/",
+                        "title": "CSP",
+                    }
+                ]
+            },
+        ]
     }
 ];
