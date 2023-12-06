@@ -1,45 +1,42 @@
+/* Global Reset */
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
+/* Body Styles */
 html,
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
+  height: 100%;
+  margin: 0;
   background-color: #f1f6f1;
+  display: flex;
+  flex-direction: column;
 }
 
+#__next {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+main {
+  flex: 1;
+}
+/* Links Styles */
 a {
   color: inherit;
   text-decoration: none;
 }
 
+/* Dark Mode */
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-/* ANIMATIONS */
-
-
-
+/* Animations */
 .animated {
   opacity: 0;
   transform: translateX(100%);
@@ -48,19 +45,16 @@ a {
 
 @keyframes slideInFromRight {
   to {
-      opacity: 1;
-      transform: translateX(0);
+    opacity: 1;
+    transform: translateX(0);
   }
 }
+
 @keyframes fade {
   from {
-      opacity: 0;
+    opacity: 0;
   }
   to {
-      opacity: 1;
+    opacity: 1;
   }
 }
-
-
-
-/* ANIMATIONS */
