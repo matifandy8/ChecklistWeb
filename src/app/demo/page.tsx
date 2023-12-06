@@ -53,6 +53,9 @@ export default function Demo() {
             <div className="demo__reset">
                 <button className='nb-button orange rounded' onClick={handleResetCheckboxes}>Reset</button>
             </div>
+            <div className="demo__create">
+                <button className='nb-button green rounded' onClick={() => window.location.href = '/waitlist'}>Create your own checklist</button>
+            </div>
         </section>
     );
 }

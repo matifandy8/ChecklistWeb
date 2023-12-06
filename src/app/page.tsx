@@ -3,7 +3,7 @@ import "./Home.styles.css";
 import Image from "next/image";
 import checkIcon from "/public/check-square.png";
 import { Metadata } from "next";
-import Waitlist from "@/components/Waitlist/Waitlist";
+import WaitlistForm from "@/components/WaitlistForm/WaitlistForm";
 
 export const metadata: Metadata = {
   title: "ChecklistWeb - Home",
@@ -117,7 +117,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <Waitlist />
+      <WaitlistForm/>
     </main>
   );
 }

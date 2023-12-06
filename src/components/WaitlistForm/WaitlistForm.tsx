@@ -19,7 +19,7 @@ const requiredSchema = Yup.object().shape({
     )
     .max(255, "Email is too long")
 });
-export default function Waitlist() {
+export default function WaitlistForm() {
   const { register, handleSubmit, formState: { errors }, reset } = useForm({
     resolver: yupResolver(requiredSchema),
   });
