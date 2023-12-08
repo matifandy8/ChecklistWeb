@@ -16,7 +16,7 @@ export async function POST(req: Request, res: NextApiResponse) {
     }
 
     const data = await resend.emails.send({
-      from: 'Matiasa <onboarding@resend.dev>',
+      from: 'Matias <onboarding@resend.dev>',
       to: email,
       subject: 'Welcome to DevChecklist',
       react: EmailTemplate({ firstName: email.split('@')[0] }),
@@ -24,7 +24,7 @@ export async function POST(req: Request, res: NextApiResponse) {
     });
 
     return NextResponse.json(data);
-  } catch (error) {
+  } catch (error: any) {
     return res.status(500).json({ error: error.message });
   }
 }
