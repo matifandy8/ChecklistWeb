@@ -79,7 +79,7 @@ export default function WaitlistForm() {
               X
             </label>
           </div>
-          <p> Thank you for your interest! We'll be in touch soon. </p>
+          <p> Thank you for your interest! We&apos;ll be in touch soon. </p>
           <form onSubmit={handleSubmit(handleFormSubmit)}>
             <input
               type="email"
