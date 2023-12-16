@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main>
+    <>
       <section className="hero__section">
         <div className="hero__container">
           <div className="hero__content animated">
@@ -118,6 +118,6 @@ export default function Home() {
         </div>
       </section>
       <WaitlistForm/>
-    </main>
+      </>
   );
 }
