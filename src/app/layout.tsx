@@ -3,6 +3,8 @@ import "./globals.css";
 import Navbar from "@/components/Navbar/Navbar";
 import "neobrutalismcss/dist/index.min.css";
 import Footer from "@/components/Footer/Footer";
+import {Providers} from './Providers'
+
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -20,11 +22,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={spaceGrotesk.variable}>
+        <Providers>
         <Navbar />
         <main>
           {children}
         </main>
         <Footer />
+        </Providers>
       </body>
     </html>
   );
