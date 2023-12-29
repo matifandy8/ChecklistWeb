@@ -20,8 +20,11 @@
   display: flex;
   justify-content: space-between;
   list-style: none;
+  gap: 5px;
 }
 .nav-item {
   padding: 0px 16px 0px;
   font-family: var(--font-space-grotesk);
+  display: flex;
+  gap: 10px;
 }

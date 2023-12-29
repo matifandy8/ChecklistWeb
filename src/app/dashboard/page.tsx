@@ -1,12 +1,12 @@
 "use client";
 import React, { Suspense, useState } from 'react';
-import CategorySection from "../ui/demo/CategorySection";
-import ProgressBar from "../ui/demo/ProgressBar";
-import "./Demo.styles.css";
+import "./Dashboard.styles.css";
 import Loading from '../loading';
+import CategorySection from '../ui/dashboard/CategorySection';
+import ProgressBar from '../ui/dashboard/ProgressBar';
 const { websiteData } = require('../lib/data');
 
-export default function Demo() {
+export default function Dashboard() {
     const [checkedItems, setCheckedItems] = useState<{ value: string; checked: boolean; }[]>([]);
 
     const handleCheckboxChange = (value: string, checked: boolean) => {
@@ -31,9 +31,9 @@ export default function Demo() {
     );
 
     return (
-        <section className="demo">
-            <h1>Demo</h1>
-            <div className="demo__container">
+        <section className="dashboard">
+            <h1>Dashboard</h1>
+            <div className="dashboard__container">
             <Suspense fallback={<Loading/>}>
                 {websiteData?.map((item: any) => (
                     <CategorySection
@@ -47,13 +47,13 @@ export default function Demo() {
             </Suspense>
             </div>
             <ProgressBar completes={checkedItems.length} totalItems={totalItems} />
-            <p className='demo__completed'>
+            <p className='dashboard__completed'>
                 You have completed <strong>{checkedItems.length}</strong> out of <strong>{totalItems}</strong>
             </p>
-            <div className="demo__reset">
+            <div className="dashboard__reset">
                 <button className='nb-button orange rounded' onClick={handleResetCheckboxes}>Reset</button>
             </div>
-            <div className="demo__create">
+            <div className="dashboard__create">
                 <button className='nb-button green rounded' onClick={() => window.location.href = '/waitlist'}>Create your own checklist</button>
             </div>
         </section>
