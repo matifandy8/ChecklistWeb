@@ -1,15 +1,14 @@
+import CreateTaskForm from "@/app/ui/checklists/CreateTaskForm";
 import { Metadata } from "next";
-import LoginForm from "../ui/login/LoginForm";
-import "./Login.styles.css";
 
 export const metadata: Metadata = {
-    title: "ChecklistWeb - Login",
+    title: "ChecklistWeb - Edit",
     description:
         "platform for developers and teams, offering a seamless checklist management experience.",
     openGraph: {
         type: "website",
         url: "https://localhost:3000",
-        title: "ChecklistWeb - Login",
+        title: "ChecklistWeb - Edit",
         description:
             "platform for developers and teams, offering a seamless checklist management experience.",
         images: [
@@ -17,16 +16,17 @@ export const metadata: Metadata = {
                 url: "https://localhost:3000/logo.png",
                 width: 800,
                 height: 600,
-                alt: "ChecklistWeb - Login",
+                alt: "ChecklistWeb - Edit",
             },
         ],
     },
 }
-export default function Login() {
+export default function page({ params }: { params: { id: string } }) {
+
     return (
-        <div className="Login">
-            <h1>Login</h1>
-            <LoginForm />
+        <div>
+            <h1>Edit Checklist <span>{params.id}</span></h1>
+            <CreateTaskForm />
         </div>
-    );
+    )
 }

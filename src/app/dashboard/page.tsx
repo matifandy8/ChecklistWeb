@@ -54,7 +54,7 @@ export default function Dashboard() {
                 <button className='nb-button orange rounded' onClick={handleResetCheckboxes}>Reset</button>
             </div>
             <div className="dashboard__create">
-                <button className='nb-button green rounded' onClick={() => window.location.href = '/createChecklist'}>Create your own checklist</button>
+                <button className='nb-button green rounded' onClick={() => window.location.href = '/checklists'}>Create your own checklist</button>
             </div>
         </section>
     );
