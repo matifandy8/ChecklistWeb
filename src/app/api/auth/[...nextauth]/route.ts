@@ -1,5 +1,5 @@
 import NextAuth from 'next-auth';
-import GitHub from 'next-auth/providers/github';
+import GitHubProvider from 'next-auth/providers/github';
 import GoogleProvider from 'next-auth/providers/google';
 
 const handler = NextAuth({
@@ -8,9 +8,9 @@ const handler = NextAuth({
             clientId: process.env.GOOGLE_CLIENT_ID,
             clientSecret: process.env.GOOGLE_CLIENT_SECRET,
         }),
-        GitHub({
-            clientId: process.env.GITHUB_CLIENT_ID,
-            clientSecret: process.env.GITHUB_CLIENT_SECRETT,
+        GitHubProvider({
+            clientId: process.env.GITHUB_ID,
+            clientSecret: process.env.GITHUB_SECRET,
         })
     ],
     secret: process.env.NEXTAUTH_SECRET,
