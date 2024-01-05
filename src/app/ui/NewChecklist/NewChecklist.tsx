@@ -10,7 +10,7 @@ const NewChecklist = () => {
     setShowInput(true);
   };
 
-  const handleNameChange = (e) => {
+  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setChecklistName(e.target.value);
   };
 
