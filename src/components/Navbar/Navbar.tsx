@@ -28,7 +28,7 @@ export default function Navbar() {
                     callbackUrl: "/",
                   })
                 }}
-                className="nav-item nb-button orange rounded"
+                className="nav-item nb-button default rounded"
               >
                 Logout
               </button>

@@ -1,94 +1,38 @@
 .dashboard{
-    height: 100vh;
-    background-color: #f1f6f1;
+
+    h1{
+        text-align: center;
+        font-size: 3rem;
+        font-family: var(--font-space-grotesk);
+        padding-top: 48px;
+    }
 }
-h1{
+
+.dashboard h2{
     text-align: center;
-    font-size: 3rem;
+    font-size: 2rem;
     font-family: var(--font-space-grotesk);
     padding-top: 48px;
     margin-bottom: 24px;
-}
-.dashboard__container{
-    max-width: 1280px;
-    margin: 48px auto 0;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    gap: 48px;
-}
-.dialog {
-    height: fit-content;
+    
 }
 
+.dashboard__checklists{
 
+    ul{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 24px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
 
-.accordion{
-    box-shadow: none; 
-    border: none; 
-
-}
-.nb-label{
-    justify-content: space-between;
-    padding: 5px 0px;
-    color: black;
-    text-transform: none;
-}
-
-.title{
-    font-size: 1.5rem;
-    font-family: var(--font-space-grotesk);
-    text-align: center;
-    padding-bottom: 10px;
-}
-
-.nb-checkbox:checked + input {
-    color: green; 
-}
-
-.accordion-content ul li{
-    color: var(--tw-prose-links);
-    text-decoration: underline;
-    font-weight: 500;
-}
-
-.progress-bar{
-    background-color: #f1f1f1!important;
-    width: 50%;
-    border-radius: 20px;
-    filter: drop-shadow(4px 4px 0px #000);
-    border: 3px solid #000;
-    margin: 20px auto;
-}
-.progress-bar div{
-    color: rgb(77, 77, 77);
-    border-radius: 20px;
-    text-align: center;
-    padding: 5px;
-}
-.low{
-    background-color: red;
-    transition: width 1s ease;
-}
-.medium{
-    background-color: yellow;
-    transition: width 1s ease;
-}
-.high{
-    background-color: rgb(0, 199, 0);
-    transition: width 1s ease;
-}
-
-.dashboard__reset{
-    width: 50%;
-    margin: 20px auto;
-    text-align: center;
-}
-.dashboard__completed{
-    margin-top: 20px;
-    text-align: center;
-}
-.dashboard__create{
-    margin-top: 20px;
-    text-align: center;
+        a{
+            font-family: var(--font-space-grotesk);
+            font-weight: 400;
+            color: #414141;
+        }
+    }
 }

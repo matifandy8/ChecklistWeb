@@ -1,9 +1,7 @@
 "use client";
-import React, { Suspense, useState } from 'react';
+import React, { useState } from 'react';
 import "./Dashboard.styles.css";
-import Loading from '../loading';
-import CategorySection from '../ui/dashboard/CategorySection';
-import ProgressBar from '../ui/dashboard/ProgressBar';
+import NewChecklist from '../ui/NewChecklist/NewChecklist';
 const { websiteData } = require('../lib/data');
 
 export default function Dashboard() {
@@ -32,30 +30,17 @@ export default function Dashboard() {
 
     return (
         <section className="dashboard">
-            <h1>Dashboard</h1>
-            <div className="dashboard__container">
-            <Suspense fallback={<Loading/>}>
-                {websiteData?.map((item: any) => (
-                    <CategorySection
-                        key={item.id}
-                        title={item.category}
-                        data={item.data}
-                        onCheckboxChange={handleCheckboxChange}
-                        checkedItems={checkedItems}
-                    />
-                ))}
-            </Suspense>
-            </div>
-            <ProgressBar completes={checkedItems.length} totalItems={totalItems} />
-            <p className='dashboard__completed'>
-                You have completed <strong>{checkedItems.length}</strong> out of <strong>{totalItems}</strong>
-            </p>
-            <div className="dashboard__reset">
-                <button className='nb-button orange rounded' onClick={handleResetCheckboxes}>Reset</button>
-            </div>
-            <div className="dashboard__create">
-                <button className='nb-button green rounded' onClick={() => window.location.href = '/checklists'}>Create your own checklist</button>
-            </div>
+                <h1>Create your Checklist</h1>
+                <NewChecklist />
+                {/* // show your checklists */}
+                <div className='dashboard__checklists'>
+                    <h2>Your Checklists</h2>
+                    <ul>
+                        <a href="/checklists/checklist1">Checklist 1</a>
+                        <a href="/checklists/checklist2">Checklist 2</a>
+                        <a href="/checklists/checklist3">Checklist 3</a>
+                    </ul>
+                </div>
         </section>
     );
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from 'react';
+import './NewChecklist.styles.css';
 
 const NewChecklist = () => {
   const [showInput, setShowInput] = useState(false);
@@ -24,18 +25,19 @@ const NewChecklist = () => {
   };
 
   return (
-    <div>
+    <div className="NewChecklist">
       {!showInput ? (
-        <button onClick={handleNewChecklistClick}>+ New Checklist</button>
+        <button onClick={handleNewChecklistClick} className="nav-item nb-button green rounded">+ New Checklist</button>
       ) : (
-        <div>
+        <div className="NewChecklist__input">
           <input
             type="text"
             placeholder="Enter checklist name"
             value={checklistName}
             onChange={handleNameChange}
+            className="nb-input default"
           />
-          <button onClick={handleSaveChecklist}>Save Checklist</button>
+          <button onClick={handleSaveChecklist} className="nav-item nb-button green rounded">Save Checklist</button>
         </div>
       )}
     </div>
