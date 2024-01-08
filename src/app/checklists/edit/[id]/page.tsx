@@ -1,32 +1,41 @@
-import CreateTaskForm from "@/app/ui/checklists/CreateTaskForm";
-import { Metadata } from "next";
+"use client";
 
-export const metadata: Metadata = {
-    title: "ChecklistWeb - Edit",
-    description:
-        "platform for developers and teams, offering a seamless checklist management experience.",
-    openGraph: {
-        type: "website",
-        url: "https://localhost:3000",
-        title: "ChecklistWeb - Edit",
-        description:
-            "platform for developers and teams, offering a seamless checklist management experience.",
-        images: [
-            {
-                url: "https://localhost:3000/logo.png",
-                width: 800,
-                height: 600,
-                alt: "ChecklistWeb - Edit",
-            },
-        ],
-    },
-}
+import CreateTaskForm from "@/app/ui/checklist/CreateTaskForm";
+import EditTask from "@/app/ui/checklist/EditTask";
+import "./styles.css";
+const { websiteData } = require('../../../lib/data');
+
+
 export default function page({ params }: { params: { id: string } }) {
 
+    const handleTaskSave = (editedTask: string) => {
+        console.log('Edited Task:', editedTask);
+    };
+
+    const handleTaskDelete = (deletedTask: any) => {
+        console.log(deletedTask.id);
+    }
     return (
         <div>
             <h1>Edit Checklist <span>{params.id}</span></h1>
-            <CreateTaskForm />
+            <div className="checklist__container">
+                {websiteData.map((category: any) => (
+                    <div key={category.id} className="checklist__item">
+                        <h2>{category.category}</h2>
+                        {category.data.map((task: any) => (
+                            <div key={task.id}>
+                                <h3>{task.title}</h3>
+                                {/* Render other task details */}
+                                <EditTask task={task} onSave={handleTaskSave} onDelete={handleTaskDelete}/>
+                            </div>
+                        ))}
+                    </div>
+                ))}
+            </div>
+            <div>
+                <CreateTaskForm task={params.id} />
+            </div>
+
         </div>
     )
 }

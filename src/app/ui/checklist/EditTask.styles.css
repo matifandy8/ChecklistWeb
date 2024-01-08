@@ -1,0 +1,32 @@
+.edit-task{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    &__input{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 0 20px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        
+    }
+
+    &__buttons{
+        display: flex;
+        gap: 10px;
+        width: 100%;
+        max-width: 400px;
+
+    }
+}

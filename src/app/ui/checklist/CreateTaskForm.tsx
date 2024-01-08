@@ -25,7 +25,7 @@ const requiredSchema = Yup.object().shape({
 
 const categories = ["Performance", "Security", "Usability", "Functionality", "Compatibility", "Analytics", "Maintenance", "Legal", "Social Media", "Testing"];
 
-export default function CreateForm() {
+export default function CreateForm({ task }: { task: string }) {
     const { register, handleSubmit, formState: { errors }, reset } = useForm({
         resolver: yupResolver(requiredSchema),
     });
@@ -47,6 +47,7 @@ export default function CreateForm() {
         console.log(newWebsite);
         if (data.title && data.category && data.url) {
             // save data to database or post to the api endpoint
+            // api to task with id - task.id 
 
             setSuccessMessage('Checklist created successfully');
             reset();
