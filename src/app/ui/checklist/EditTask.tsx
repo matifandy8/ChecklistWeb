@@ -3,8 +3,7 @@
 import React, { useState } from 'react';
 import "./EditTask.styles.css";
 
-const EditTask = ({ task , onSave , onDelete } : any) => {
-    console.log(task);
+const EditTask = ({ task, onSave, onDelete }: any) => {
     const [editedTask, setEditedTask] = useState(task);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -25,18 +24,37 @@ const EditTask = ({ task , onSave , onDelete } : any) => {
             <div>
                 <label htmlFor="title">Title:</label>
                 <input
+
                     type="text"
                     id="title"
                     name="title"
                     value={editedTask.title}
                     onChange={handleInputChange}
+                    className='nb-input default'
                 />
             </div>
+            
 
-            {editedTask.links.map((link: { url: string; title: string }, index: number) => (
+            {editedTask.links.map((link: { url: string; titleUrl: string }, index: number) => (
                 <div key={index} className="edit-task__input">
                     <div>
-                        <label htmlFor={`url-${index}`}>URL:</label>
+                        <label htmlFor={`titleUrl-${index}`}>Link Title:</label>
+                        <input
+                            type="text"
+                            id={`titleUrl-${index}`}
+                            name="titleUrl"
+                            value={link.titleUrl}
+                            onChange={(e) => {
+                                const updatedLinks = [...editedTask.links];
+                                updatedLinks[index] = { ...link, titleUrl: e.target.value };
+                                setEditedTask((prevTask: any) => ({ ...prevTask, links: updatedLinks }));
+                            }
+                            }
+                            className='nb-input default'
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor={`url-${index}`}>Url:</label>
                         <input
                             type="text"
                             id={`url-${index}`}
@@ -47,29 +65,14 @@ const EditTask = ({ task , onSave , onDelete } : any) => {
                                 updatedLinks[index] = { ...link, url: e.target.value };
                                 setEditedTask((prevTask: any) => ({ ...prevTask, links: updatedLinks }));
                             }}
-                        />
-                    </div>
-
-                    <div>
-                        <label htmlFor={`title-${index}`}>Title:</label>
-                        <input
-                            type="text"
-                            id={`title-${index}`}
-                            name="title"
-                            value={link.title}
-                            onChange={(e) => {
-                                const updatedLinks = [...editedTask.links];
-                                updatedLinks[index] = { ...link, title: e.target.value };
-                                setEditedTask((prevTask: any) => ({ ...prevTask, links: updatedLinks }));
-                            }
-                            }
+                            className='nb-input default'
                         />
                     </div>
 
                 </div>
             ))}
             <div className="edit-task__buttons">
-                <button onClick={handleSave} className="nav-item nb-button green rounded">Save</button>
+                <button onClick={handleSave} className="nb-button green rounded">Save</button>
                 <button className="nb-button orange rounded" onClick={handleDelete}>Delete</button>
             </div>
 

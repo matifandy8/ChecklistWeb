@@ -45,9 +45,9 @@ export default function Accordion({
       <div className="accordion-content">
         <ul>
           {links.map((link) => (
-            <li key={link.title}>
+            <li key={link.titleUrl}>
               <Link href={link.url} rel="noopener noreferrer" target="_blank">
-                {link.title}
+                {link.titleUrl}
               </Link>
             </li>
           ))}

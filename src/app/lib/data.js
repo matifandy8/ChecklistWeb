@@ -9,7 +9,7 @@ export const websiteData = [
                 "links": [
                     {
                         "url": "https://pagespeed.web.dev/",
-                        "title": "Google PageSpeed Insights",
+                        "titleUrl": "Google PageSpeed Insights",
                     },
                 ]
             },
@@ -19,7 +19,7 @@ export const websiteData = [
                 "links": [
                     {
                         "url": "https://redbot.org/",
-                        "title": "redbot.org",
+                        "titleUrl": "redbot.org",
                     },
                 ]
             },
@@ -29,11 +29,11 @@ export const websiteData = [
                 "links": [
                     {
                         "url": "https://tinypng.com/",
-                        "title": "TinyPNG",
+                        "titleUrl": "TinyPNG",
                     },
                     {
                         "url": "https://imagecompressor.com/",
-                        "title": "imagecompressor.com",
+                        "titleUrl": "imagecompressor.com",
                     }
                 ]
             }
@@ -49,8 +49,7 @@ export const websiteData = [
                 "links": [
                     {
                         "url": "https://ahrefs.com/broken-link-checke",
-                        "title": "broken-link-checker",
-        
+                        "titleUrl": "broken-link-checker",
                     },
                 ]
             },
@@ -60,12 +59,11 @@ export const websiteData = [
                 "links": [
                     {
                         "url": "https://en.wikipedia.org/wiki/Capitalization",
-                        "title": "Capitalization",
-        
+                        "titleUrl": "Capitalization",
                     },
                     {
                         "url": "https://en.wikipedia.org/wiki/Writing_style",
-                        "title": "Writing Style",
+                        "titleUrl": "Writing Style",
                     }
                 ]
             },
@@ -75,12 +73,11 @@ export const websiteData = [
                 "links": [
                     {
                         "url": "https://www.browserstack.com/",
-                        "title": "BrowserStack",
-        
+                        "titleUrl": "BrowserStack",
                     },
                     {
                         "url": "https://smartbear.com/product/bitbar/",
-                        "title": "CrossBrowserTesting",
+                        "titleUrl": "CrossBrowserTesting",
                     }
                 ]
             }
@@ -96,12 +93,11 @@ export const websiteData = [
                 "links": [
                     {
                         "url": "https://caniuse.com/",
-                        "title": "Can I Use",
-        
+                        "titleUrl": "Can I Use",
                     },
                     {
                         "url": "https://modernizr.com/",
-                        "title": "Modernizr JS library",
+                        "titleUrl": "Modernizr JS library",
                     }
                 ]
             },
@@ -111,8 +107,7 @@ export const websiteData = [
                 "links": [
                     {
                         "url": "https://alistapart.com/article/amoreuseful404/",
-                        "title": "A more useful 404",
-        
+                        "titleUrl": "A more useful 404",
                     },
                 ]
             },
@@ -122,12 +117,11 @@ export const websiteData = [
                 "links": [
                     {
                         "url": "https://realfavicongenerator.net/",
-                        "title": "Real Favicon Generator",
-        
+                        "titleUrl": "Real Favicon Generator",
                     },
                     {
                         "url": "https://github.com/audreyfeldroy/favicon-cheat-sheet",
-                        "title": "Favicon Cheat Sheet",
+                        "titleUrl": "Favicon Cheat Sheet",
                     }
                 ]
             }
@@ -143,8 +137,7 @@ export const websiteData = [
                 "links": [
                     {
                         "url": "https://usability.yale.edu/web-accessibility/articles/links",
-                        "title": "Usability.Yale.edu",
-        
+                        "titleUrl": "Usability.Yale.edu",
                     }
                 ]
             },
@@ -154,8 +147,7 @@ export const websiteData = [
                 "links": [
                     {
                         "url": "https://webaim.org/resources/contrastchecker",
-                        "title": "WebAIM",
-        
+                        "titleUrl": "WebAIM",
                     },
                 ]
             },
@@ -165,8 +157,7 @@ export const websiteData = [
                 "links": [
                     {
                         "url": "https://webaim.org/techniques/keyboard/",
-                        "title": "WebAIM",
-        
+                        "titleUrl": "WebAIM",
                     },
                 ]
             }
@@ -182,7 +173,7 @@ export const websiteData = [
                 "links": [
                     {
                         "url": "https://hstspreload.org/",
-                        "title": "HSTS Preload",
+                        "titleUrl": "HSTS Preload",
                     }
                 ]
             },
@@ -192,7 +183,7 @@ export const websiteData = [
                 "links": [
                     {
                         "url": "https://en.wikipedia.org/wiki/HTTPS",
-                        "title": "HTTPS",
+                        "titleUrl": "HTTPS",
                     }
                 ]
             },
@@ -203,7 +194,7 @@ export const websiteData = [
                 "links": [
                     {
                         "url": "https://csp-evaluator.withgoogle.com/",
-                        "title": "CSP",
+                        "titleUrl": "CSP",
                     }
                 ]
             },

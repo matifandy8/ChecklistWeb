@@ -56,7 +56,7 @@ export default function page({ params }: { params: { id: string } }) {
             <div className="checklist__reset">
                 <button className='nb-button orange rounded' onClick={handleResetCheckboxes}>Reset</button>
             </div>
-            <div className="checklist__create">
+            <div className="checklist__createButton">
                 <a href={`/checklists/edit/${params.id}`} className='nb-button blue rounded'>Edit</a>
             </div>
         </section>

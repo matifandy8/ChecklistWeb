@@ -6,6 +6,10 @@
 .nav-logo {
   font-size: 2rem;
 }
+.nav-logo-mobile{
+  font-size: 1.5rem;
+  display: none;
+}
 .navbar-container {
   height: 100%;
   display: flex;
@@ -27,4 +31,14 @@
   font-family: var(--font-space-grotesk);
   display: flex;
   gap: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .nav-logo{
+    display: none;
+  }
+  .nav-logo-mobile{
+    display: block;
+  }
+
 }

@@ -1,4 +1,4 @@
-.edit-task{
+.edit-task {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -9,7 +9,7 @@
     margin-top: 20px;
     margin-bottom: 20px;
 
-    &__input{
+    &__input {
         display: flex;
         flex-direction: column;
         gap: 10px;
@@ -19,14 +19,16 @@
         padding: 0 20px;
         margin-top: 20px;
         margin-bottom: 20px;
-        
     }
+}
 
-    &__buttons{
-        display: flex;
-        gap: 10px;
-        width: 100%;
-        max-width: 400px;
+.edit-task__buttons {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 10px;
+}	
 
-    }
+label {
+    font-size: 1.1rem;
+    padding: 10px;
 }

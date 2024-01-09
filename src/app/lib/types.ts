@@ -3,7 +3,7 @@ export type Category = {
     title: string;
     links: Array<{
       url: string;
-      title: string;
+      titleUrl: string;
     }>;
 };
 
@@ -17,7 +17,7 @@ export type CategorySectionProps = {
 export type AccordionProps = {
   title: string;
   id: string;
-  links: { title: string; url: string }[];
+  links: { titleUrl: string; url: string }[];
   onCheckboxChange: (value: string, checked: boolean) => void;
   checkedItems: { value: string; checked: boolean; }[];
 }

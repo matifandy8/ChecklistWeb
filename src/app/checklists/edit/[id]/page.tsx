@@ -18,24 +18,23 @@ export default function page({ params }: { params: { id: string } }) {
     return (
         <div>
             <h1>Edit Checklist <span>{params.id}</span></h1>
+            <div className="checklist__create">
+                <CreateTaskForm task={params.id} />
+            </div>
             <div className="checklist__container">
                 {websiteData.map((category: any) => (
                     <div key={category.id} className="checklist__item">
-                        <h2>{category.category}</h2>
+                        <h2 className="checklist__category">{category.category}</h2>
                         {category.data.map((task: any) => (
                             <div key={task.id}>
                                 <h3>{task.title}</h3>
-                                {/* Render other task details */}
                                 <EditTask task={task} onSave={handleTaskSave} onDelete={handleTaskDelete}/>
                             </div>
                         ))}
                     </div>
                 ))}
             </div>
-            <div>
-                <CreateTaskForm task={params.id} />
-            </div>
-
+        
         </div>
     )
 }

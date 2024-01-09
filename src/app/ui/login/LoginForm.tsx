@@ -10,12 +10,14 @@ export default function LoginForm() {
         <div className="login-form">
            <button
               onClick={() => signIn("google")}
-              className="nav-item nb-button green rounded"
+              className="nav-item nb-button default"
             >
-              Sign In with Google
+              <img className="icon" src="/google.svg" alt="google icon" />
+              <span>Sign in with Google</span>
             </button>
-            <button onClick={() => signIn("github")} className="nav-item nb-button blue rounded">
-              Sign In with GitHub
+            <button onClick={() => signIn("github")} className="nav-item nb-button default">
+              <img className="icon" src="/github.svg" alt="github icon" />
+              <span>Sign in with Github</span>
             </button>
         </div>
     );
