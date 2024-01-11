@@ -4,11 +4,16 @@
   background-color: #f1f6f1;
 }
 .nav-logo {
-  font-size: 2rem;
+ 
+  img{
+    width: 250px;
+  }
 }
 .nav-logo-mobile{
-  font-size: 1.5rem;
   display: none;
+  img{
+    width: 100px;
+  }
 }
 .navbar-container {
   height: 100%;

@@ -11,8 +11,8 @@ export default function Navbar() {
   return (
     <nav className="nav">
       <div className="navbar-container">
-        <h1 className="nav-logo"><Link href="/">ChecklistWeb</Link></h1>
-        <h1 className="nav-logo-mobile"><Link href="/">CW</Link></h1>
+        <Link href="/" className="nav-logo"><img src="/checklistweb-logo.png" alt="checklist logo" /></Link>
+        <Link className="nav-logo-mobile" href="/"><img src="/logo-i-checklistweb.png" alt="checklist logo" /></Link>
         <ul className="nav-links">
           {session?.user ? (
             <div className="nav-item">
