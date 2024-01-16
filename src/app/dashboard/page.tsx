@@ -11,6 +11,7 @@ export default async function Dashboard() {
     const { data: session } = useSession();
 
     const { data: nameChecklists, error } = await supabase.from('checklists').select('namechecklist').eq('user_id', session?.user?.email);
+    
 
 
 

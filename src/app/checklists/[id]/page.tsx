@@ -6,7 +6,8 @@ import "./checklist.styles.css";
 import CategorySection from "@/app/ui/checklist/CategorySection";
 import ProgressBar from "@/app/ui/checklist/ProgressBar";
 import supabase from "@/app/lib/supabase";
-
+import { websiteData } from "@/app/lib/data";
+import convertData from "@/app/lib/convertData";
 
 export default function page({ params }: { params: { id: string } }) {
     const [checkedItems, setCheckedItems] = useState<{ value: string; checked: boolean; }[]>([]);
@@ -16,20 +17,10 @@ export default function page({ params }: { params: { id: string } }) {
         const fetchData = async () => {
             try {
                 const { data, error } = await supabase.from('tasks').select('*').eq('namechecklist', params.id);
+                // agarra a aca solo uno checklistpuede tener varias tasks que deben de tener un identificador como el namechecklist 
+                // recorrer data y huntar por categoria
                 if (data) {
-                    if (data.length > 0) {
-                        const convertedData = {
-                            id: "tab1", 
-                            title: data[0].title,
-                            links: [
-                                {
-                                    url: data[0].url,
-                                    titleUrl: data[0].titleurl,
-                                }
-                            ]
-                        };
-                        setChecklistJson(convertedData);
-                    }
+                  setChecklistJson(data)
                 } else if (error) {
                     // Handle error
                     console.error("Error fetching checklist data:", error);
@@ -69,14 +60,17 @@ export default function page({ params }: { params: { id: string } }) {
             <h1>Checklist Name</h1>
             <div className="checklist__container">
                 <Suspense fallback={<Loading />}>
+                {convertData(checklistJson)?.map((item: any) => (
                         <CategorySection
-                            key={checklistJson?.id}
-                            title={checklistJson?.category}
-                            data={checklistJson}
+                            key={item.id}
+                            title={item.category}
+                            data={item.data}
                             onCheckboxChange={handleCheckboxChange}
                             checkedItems={checkedItems}
                         />
+                    ))}
                 </Suspense>
+
             </div>
             <ProgressBar completes={checkedItems.length} totalItems={totalItems} />
             <p className='checklist__completed'>

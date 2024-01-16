@@ -10,7 +10,7 @@ export default function Footer() {
         <p>© 2023 ChecklistWeb.</p>
         <p>
           <a
-            href="https://github.com/ChecklistWeb/ChecklistWeb"
+            href="https://github.com/matifandy8/ChecklistWeb"
             target="_blank"
           >
             <Image src={githubIcon} alt="GitHub Icon" width={30} height={30} />

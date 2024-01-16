@@ -13,7 +13,7 @@ export default function CategorySection({
     return (
         <div className="dialog animated">
             <h3 className="title">{title}</h3>
-            {data?.map((item: Category) => (
+            {data.map((item: Category) => (
                 <Accordion
                     key={item.id}
                     title={item.title}

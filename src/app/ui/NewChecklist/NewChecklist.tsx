@@ -1,10 +1,23 @@
 "use client";
 
-import { useState } from 'react';
 import './NewChecklist.styles.css';
+import supabase from '@/app/lib/supabase';
 import { useSession } from 'next-auth/react';
+import React, { useEffect, useState } from 'react';
 
-const NewChecklist = () => {
+export default function NewChecklist() {
+  const { data: session } = useSession();
+  useEffect(() => {
+    const fetchData = async () => {
+      const { data: nameChecklists, error } = await supabase
+        .from('checklists')
+        .select('namechecklist')
+        .eq('user_id', session?.user?.email);
+      // handle the data/error here
+    };
+
+    fetchData();
+  }, []);
 
   const [showInput, setShowInput] = useState(false);
   const [checklistName, setChecklistName] = useState('');
@@ -18,7 +31,9 @@ const NewChecklist = () => {
   };
 
   const handleSaveChecklist = () => {
-    // Implement the logic to save the checklist
+    if (!checklistName) {
+      return;
+    }
     console.log('Checklist saved:', checklistName);
 
     // Reset the state
@@ -46,4 +61,3 @@ const NewChecklist = () => {
   );
 };
 
-export default NewChecklist;
