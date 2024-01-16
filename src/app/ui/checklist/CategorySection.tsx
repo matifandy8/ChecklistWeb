@@ -9,6 +9,7 @@ export default function CategorySection({
     onCheckboxChange,
     checkedItems
 }: CategorySectionProps) {
+    console.log(data)
     return (
         <div className="dialog animated">
             <h3 className="title">{title}</h3>

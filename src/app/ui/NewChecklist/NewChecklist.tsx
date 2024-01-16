@@ -2,8 +2,10 @@
 
 import { useState } from 'react';
 import './NewChecklist.styles.css';
+import { useSession } from 'next-auth/react';
 
 const NewChecklist = () => {
+
   const [showInput, setShowInput] = useState(false);
   const [checklistName, setChecklistName] = useState('');
 
