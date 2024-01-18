@@ -7,6 +7,7 @@ import CategorySection from "@/app/ui/checklist/CategorySection";
 import ProgressBar from "@/app/ui/checklist/ProgressBar";
 import supabase from "@/app/lib/supabase";
 import convertData from "@/app/lib/convertData";
+import Link from "next/link";
 
 export default function page({ params }: { params: { id: string } }) {
     const [checkedItems, setCheckedItems] = useState<{ value: string; checked: boolean; }[]>([]);
@@ -69,7 +70,7 @@ export default function page({ params }: { params: { id: string } }) {
                 ) : (
                     <div>
                         <p>No checklist items found</p>
-                        <a className='nb-button blue rounded' href={`/checklists/edit/${params.id}`}>Add Task</a>
+                        <Link className='nb-button blue rounded' href={`/checklists/edit/${params.id}`}>Add Task</Link>
                     </div>
                 )}
             </div>
@@ -81,7 +82,7 @@ export default function page({ params }: { params: { id: string } }) {
                 <button className='nb-button orange rounded' onClick={handleResetCheckboxes}>Reset</button>
             </div>
             <div className="checklist__createButton">
-                <a href={`/checklists/edit/${params.id}`} className='nb-button blue rounded'>Edit</a>
+                <Link href={`/checklists/edit/${params.id}`} className='nb-button blue rounded'>Edit</Link>
             </div>
         </section>
     )

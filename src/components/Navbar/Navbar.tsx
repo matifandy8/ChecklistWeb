@@ -31,12 +31,12 @@ export default function Navbar() {
               </button>
             </div>
           ) : (
-            <a
+            <Link
               href="/login"
               className="nav-item nb-button green rounded"
             >
               Sign In
-            </a>
+            </Link>
           )}
         </ul>
       </div>

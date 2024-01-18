@@ -5,6 +5,7 @@ import "./Dashboard.styles.css";
 import NewChecklist from '../ui/NewChecklist/NewChecklist';
 import supabase from "@/app/lib/supabase";
 import { useSession } from 'next-auth/react';
+import Link from 'next/link';
 const { websiteData } = require('../lib/data');
 
 export default async function Dashboard() {
@@ -19,7 +20,7 @@ export default async function Dashboard() {
                     <h2>Your Checklists</h2>
                     <ul>
                         {nameChecklists?.map((checklist: any) => (
-                            <li key={checklist.namechecklist}><a href={`/checklists/${checklist.namechecklist}`}>{checklist.namechecklist}</a></li>
+                            <li key={checklist.namechecklist}><Link href={`/checklists/${checklist.namechecklist}`}>{checklist.namechecklist}</Link></li>
                         ))}
                     </ul>
                 </div>
