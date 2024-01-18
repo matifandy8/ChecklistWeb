@@ -16,7 +16,6 @@ export default function page({ params }: { params: { id: string } }) {
             if (data) {
                 setChecklistJson(data[0]);
             } else if (error) {
-                // Handle error
                 console.error("Error fetching checklist data:", error);
             }
         } catch (error) {

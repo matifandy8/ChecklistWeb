@@ -2,12 +2,14 @@
   height: 70vh;
   background-color: #f1f6f1;
 }
+
 .hero__container {
   display: flex;
   padding: 0px 0px 40px 0px;
   justify-content: center;
   height: 100%;
 }
+
 .hero__content {
   display: flex;
   padding: 0 20px;
@@ -17,6 +19,7 @@
   gap: 20px;
   max-width: 830px;
 }
+
 h1 {
   font-size: 3.4rem;
   font-family: var(--font-space-grotesk);
@@ -31,23 +34,26 @@ h2 {
   font-weight: 500;
   letter-spacing: -0.01em;
 }
+
 h3 {
   font-size: 3rem;
   font-family: var(--font-space-grotesk);
   text-align: center;
 }
+
 p {
   font-weight: 700;
 }
+
 .title-inner {
   display: flex;
   justify-content: center;
   gap: 10px;
   flex-wrap: wrap;
 }
+
 .badge {
-  transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg)
-    rotateY(0deg) rotateZ(-5deg) skew(0deg, 0deg);
+  transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(-5deg) skew(0deg, 0deg);
   transform-style: preserve-3d;
   width: 232px;
   height: 74px;
@@ -68,55 +74,31 @@ p {
   background-color: #f1f6f1;
   padding-bottom: 150px;
 }
+
 .features__title {
   padding: 20px;
 }
+
 .features__container {
   padding: 0 20px;
 }
+
 .feature__content {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 45px;
 }
+
 .feature__item {
   width: auto;
 }
+
 .feature__icon {
   margin: 10px 0px;
 }
+
 @media (max-width: 768px) {
   .feature__content {
     grid-template-columns: 1fr;
   }
-}
-
-.loading {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f1f6f1;
-}
-.loader {
-  border: 16px solid #f3f3f3;
-  border-radius: 50%;
-  border-top: 16px solid #ff5733;
-  width: 120px;
-  height: 120px;
-  -webkit-animation: spin 2s linear infinite; /* Safari */
-  animation: spin 2s linear infinite;
-  filter: drop-shadow(4px 4px 0px #000);
-  border: 3px solid #ff5733;
-}
-
-/* Safari */
-@-webkit-keyframes spin {
-  0% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); }
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
 }

@@ -9,19 +9,12 @@ const { websiteData } = require('../lib/data');
 
 export default async function Dashboard() {
     const { data: session } = useSession();
-
     const { data: nameChecklists, error } = await supabase.from('checklists').select('namechecklist').eq('user_id', session?.user?.email);
     
-
-
-
-    console.log(nameChecklists)
-  
     return (
         <section className="dashboard">
                 <h1>Create your Checklist</h1>
                 <NewChecklist />
-                {/* // show your checklists */}
                 <div className='dashboard__checklists'>
                     <h2>Your Checklists</h2>
                     <ul>
