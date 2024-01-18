@@ -1,15 +1,12 @@
-"use client"
-
-import React, { useState } from 'react';
+import React from 'react';
 import "./Dashboard.styles.css";
 import NewChecklist from '../ui/NewChecklist/NewChecklist';
 import supabase from "@/app/lib/supabase";
-import { useSession } from 'next-auth/react';
 import Link from 'next/link';
-const { websiteData } = require('../lib/data');
+import { getServerSession } from 'next-auth';
 
 export default async function Dashboard() {
-    const { data: session } = useSession();
+    const session = await getServerSession({ required: true, callbacks: {} })
     const { data: nameChecklists, error } = await supabase.from('checklists').select('namechecklist').eq('user_id', session?.user?.email);
     
     return (
