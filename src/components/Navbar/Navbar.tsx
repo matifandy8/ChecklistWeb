@@ -1,12 +1,11 @@
-"use client";
-
 import Link from "next/link";
 import "./styles.css";
-import { useSession, signOut } from "next-auth/react";
+import { getServerSession } from 'next-auth'
+import ButtonLogout from "./ButtonLogout";
 
+export default async function Navbar() {
+  const session = await getServerSession({ required: true, callbacks: {} })
 
-export default function Navbar() {
-  const { data: session } = useSession();
 
   return (
     <nav className="nav">
@@ -19,16 +18,10 @@ export default function Navbar() {
               <li className="nav-item nb-button orange rounded">
                 <Link href="/dashboard">Dashboard</Link>
               </li>
-              <button
-                onClick={async () => {
-                  await signOut({
-                    callbackUrl: "/",
-                  })
-                }}
-                className="nav-item nb-button default rounded"
-              >
-                Logout
-              </button>
+              <ButtonLogout />
+              <div className="avatar bg-pale-red">
+                <img className="avatar-img" src={session?.user?.image || '/default-avatar.png'} alt="Avatar" />
+              </div>
             </div>
           ) : (
             <Link

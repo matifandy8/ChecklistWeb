@@ -35,7 +35,13 @@
   padding: 0px 16px 0px;
   font-family: var(--font-space-grotesk);
   display: flex;
+  align-items: center;
   gap: 10px;
+
+  .avatat-img{
+    width: 30px;
+    height: 30px;
+  }
 }
 
 @media screen and (max-width: 768px) {
