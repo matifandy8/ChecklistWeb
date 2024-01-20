@@ -5,6 +5,7 @@ import EditTask from "@/app/ui/checklist/EditTask";
 import "./styles.css";
 import supabase from "@/app/lib/supabase";
 import { useEffect, useState } from "react";
+import { CategoryData, Task } from "@/app/lib/types";
 
 
 export default function page({ params }: { params: { id: string } }) {
@@ -33,7 +34,7 @@ export default function page({ params }: { params: { id: string } }) {
         // const { data, error } = supabase.from('tasks').update({ title: editedTask }).eq('id', editedTask);
     };
 
-    const handleTaskDelete = (deletedTask: any) => {
+    const handleTaskDelete = (deletedTask: Task) => {
         console.log(deletedTask.id);
     }
     return (
@@ -43,19 +44,19 @@ export default function page({ params }: { params: { id: string } }) {
                 <CreateTaskForm task={params.id} />
             </div>
             <div className="checklist__container">
-                {checklistJson?.checklist.map((category: any) => (
+                {checklistJson?.checklist.map((category: CategoryData) => (
                     <div key={category.id} className="checklist__item">
                         <h2 className="checklist__category">{category.category}</h2>
-                        {category.data.map((task: any) => (
+                        {category.data.map((task: Task) => (
                             <div key={task.id}>
                                 <h3>{task.title}</h3>
-                                <EditTask task={task} onSave={handleTaskSave} onDelete={handleTaskDelete}/>
+                                <EditTask task={task} onSave={handleTaskSave} onDelete={handleTaskDelete} />
                             </div>
                         ))}
                     </div>
                 ))}
             </div>
-        
+
         </div>
     )
 }

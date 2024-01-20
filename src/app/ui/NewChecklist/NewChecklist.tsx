@@ -11,9 +11,8 @@ export default function NewChecklist() {
     const fetchData = async () => {
       const { data: nameChecklists, error } = await supabase
         .from('checklists')
-        .select('namechecklist')
+        .select('name')
         .eq('user_id', session?.user?.email);
-      // handle the data/error here
     };
 
     fetchData();

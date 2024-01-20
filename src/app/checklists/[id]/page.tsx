@@ -16,7 +16,7 @@ export default function page({ params }: { params: { id: string } }) {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const { data, error } = await supabase.from('tasks').select('*').eq('namechecklist', params.id);
+                const { data, error } = await supabase.from('tasks').select('*').eq('name', params.id);
                 if (data) {
                     setChecklistJson(data)
                 } else if (error) {

@@ -1,6 +1,6 @@
 import React from 'react';
 import Accordion from './Accordion';
-import { Category, CategorySectionProps } from '@/app/lib/types';
+import { CategorySectionProps, Task } from '@/app/lib/types';
 
 
 export default function CategorySection({
@@ -13,7 +13,7 @@ export default function CategorySection({
     return (
         <div className="dialog animated">
             <h3 className="title">{title}</h3>
-            {data.map((item: Category) => (
+            {data.map((item: Task) => (
                 <Accordion
                     key={item.id}
                     title={item.title}
