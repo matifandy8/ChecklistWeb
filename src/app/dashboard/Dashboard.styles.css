@@ -36,3 +36,20 @@
         }
     }
 }
+
+.dashboard__checklist{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    
+    a{
+        font-family: var(--font-space-grotesk);
+        font-weight: 400;
+        color: #414141;
+    }
+}

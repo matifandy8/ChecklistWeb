@@ -29,7 +29,7 @@ export type AccordionProps = {
 }
 
 export interface InputDataItem {
-  id: number;
+  id_task: number;
   title: string;
   category: string;
   url: string;

@@ -16,7 +16,7 @@ export default function page({ params }: { params: { id: string } }) {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const { data, error } = await supabase.from('tasks').select('*').eq('name', params.id);
+                const { data, error } = await supabase.from('tasks').select('*').eq('id_checklist', params.id);
                 if (data) {
                     setChecklistJson(data)
                 } else if (error) {
@@ -55,12 +55,12 @@ export default function page({ params }: { params: { id: string } }) {
     }
     return (
         <section className="checklist">
-            <h1>Checklist Name</h1>
+            <h1>Checklist</h1>
             <div className="checklist__container">
                 {checklistJson && checklistJson.length > 0 ? (
                     convertData(checklistJson)?.map((item: any) => (
                         <CategorySection
-                            key={item.id}
+                            key={item.id_task}
                             title={item.category}
                             data={item.data}
                             onCheckboxChange={handleCheckboxChange}

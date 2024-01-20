@@ -1,26 +1,20 @@
 import { ConvertedCategory, InputDataItem } from "./types";
 
-
 const convertData = (inputData: InputDataItem[] | null | undefined): ConvertedCategory[] => {
-  if (!inputData || !Array.isArray(inputData)) {
-    console.error('Invalid inputData. Please provide a valid array.');
+  if (!inputData) {
     return [];
   }
-
-  const categoryMapping: Record<string, string> = {
-    'Best Practices': 'Performance',
-  };
 
   const result: ConvertedCategory[] = [];
 
   inputData.forEach((item) => {
-    const category = categoryMapping[item.category] || 'Other';
+    // Check if category already exists in result
+    const existingCategoryIndex = result.findIndex((category) => category.category === item.category);
 
-    const existingCategory = result.find((cat) => cat.category === category);
-
-    if (existingCategory) {
-      existingCategory.data.push({
-        id: item.id,
+    if (existingCategoryIndex !== -1) {
+      // Category exists, add the item to the existing category
+      result[existingCategoryIndex].data.push({
+        id: item.id_task,
         title: item.title,
         links: [
           {
@@ -30,11 +24,12 @@ const convertData = (inputData: InputDataItem[] | null | undefined): ConvertedCa
         ],
       });
     } else {
+      // Category doesn't exist, create a new category
       result.push({
-        category: category,
+        category: item.category,
         data: [
           {
-            id: item.id,
+            id: item.id_task,
             title: item.title,
             links: [
               {

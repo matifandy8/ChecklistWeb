@@ -6,6 +6,7 @@ import "./styles.css";
 import supabase from "@/app/lib/supabase";
 import { useEffect, useState } from "react";
 import { CategoryData, Task } from "@/app/lib/types";
+import convertData from "@/app/lib/convertData";
 
 
 export default function page({ params }: { params: { id: string } }) {
@@ -13,9 +14,9 @@ export default function page({ params }: { params: { id: string } }) {
 
     const fetchchecklistData = async () => {
         try {
-            const { data, error } = await supabase.from('checklists').select('checklist').eq('namechecklist', params.id);
+            const { data, error } = await supabase.from('tasks').select('*').eq('id_checklist', params.id);
             if (data) {
-                setChecklistJson(data[0]);
+                setChecklistJson(data);
             } else if (error) {
                 console.error("Error fetching checklist data:", error);
             }
@@ -26,7 +27,7 @@ export default function page({ params }: { params: { id: string } }) {
 
     useEffect(() => {
         fetchchecklistData();
-    })
+    }, [params.id]);
 
     const handleTaskSave = (editedTask: string) => {
         console.log('Edited Task:', editedTask);
@@ -44,10 +45,10 @@ export default function page({ params }: { params: { id: string } }) {
                 <CreateTaskForm task={params.id} />
             </div>
             <div className="checklist__container">
-                {checklistJson?.checklist.map((category: CategoryData) => (
-                    <div key={category.id} className="checklist__item">
-                        <h2 className="checklist__category">{category.category}</h2>
-                        {category.data.map((task: Task) => (
+                {convertData(checklistJson)?.map((tasks: any) => (
+                    <div key={tasks.id} className="checklist__item">
+                        <h2 className="checklist__category">{tasks.category}</h2>
+                        {tasks.data.map((task: Task) => (
                             <div key={task.id}>
                                 <h3>{task.title}</h3>
                                 <EditTask task={task} onSave={handleTaskSave} onDelete={handleTaskDelete} />
