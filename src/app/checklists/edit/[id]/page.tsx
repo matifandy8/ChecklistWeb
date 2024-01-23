@@ -5,7 +5,7 @@ import EditTask from "@/app/ui/checklist/EditTask";
 import "./styles.css";
 import supabase from "@/app/lib/supabase";
 import { useEffect, useState } from "react";
-import { Task } from "@/app/lib/types";
+import { EditedTask, Task } from "@/app/lib/types";
 import convertData from "@/app/lib/convertData";
 
 
@@ -29,17 +29,41 @@ export default function page({ params }: { params: { id: string } }) {
         fetchchecklistData();
     }, [params.id]);
 
-    const handleTaskSave = (editedTask: string) => {
-        console.log('Edited Task:', editedTask);
-    //    const { data, error } = supabase.from('tasks').update({task: editedTask}).eq('id_task', editedTask.id);
-    //    console.log(data);
-
+    const handleTaskSave =  async (editedTask: EditedTask) => {
+        try {
+            const { id_task, title, titleurl, url } = editedTask;
+            const { data, error } = await supabase
+                .from('tasks')
+                .update({ title, titleurl, url })
+                .eq('id_task', id_task);
+            if (error) {
+                console.error('Error updating task:', error.message);
+            } else {
+                console.log('Task updated successfully:', data);
+            }
+        } catch (error: any) {
+            console.error('Error updating task:', error.message);
+        }
     };
-    console.log(checklistJson)
 
-    const handleTaskDelete = (deletedTask: Task) => {
-        console.log(deletedTask.id);
+    const handleTaskDelete = async (deletedTask: EditedTask) => {
+        console.log(deletedTask.id_task);
+        try {
+            const { id_task } = deletedTask;
+            const { data, error } = await supabase
+                .from('tasks')
+                .delete()
+                .eq('id_task', id_task);
+            if (error) {
+                console.error('Error deleting task:', error.message);
+            } else {
+                console.log('Task deleted successfully:', data);
+            }
+        } catch (error: any) {
+            console.error('Error deleting task:', error.message);
+        }
     }
+
     return (
         <div>
             <h1>Edit Checklist <span>{params.id}</span></h1>
@@ -47,16 +71,23 @@ export default function page({ params }: { params: { id: string } }) {
                 <CreateTaskForm task={params.id} />
             </div>
             <div className="checklist__container">
-                {/* {convertData(checklistJson)?.map((tasks: any) => (
+                {convertData(checklistJson)?.map((tasks: any) => (
                     <div key={tasks.id} className="checklist__item">
                         <h2 className="checklist__category">{tasks.category}</h2>
-                        {tasks.data.map((task: Task) => (
-                            <div key={task.id}>
-                                <EditTask task={task} onSave={handleTaskSave} onDelete={handleTaskDelete} />
-                            </div>
+                        {tasks.data.map((task: any) => (
+                            <EditTask
+                                key={task.id}
+                                id_task={task.id}
+                                title={task.title}
+                                titleurl={task.links[0].titleUrl}
+                                url={task.links[0].url}
+                                onSave={handleTaskSave}
+                                onDelete={handleTaskDelete}
+                            />
                         ))}
                     </div>
-                ))} */}
+                ))}
+
             </div>
 
         </div>

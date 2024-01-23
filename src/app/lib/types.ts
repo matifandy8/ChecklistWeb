@@ -27,6 +27,13 @@ export type AccordionProps = {
   onCheckboxChange: (value: string, checked: boolean) => void;
   checkedItems: { value: string; checked: boolean; }[];
 }
+export interface EditedTask {
+  id_task: number;
+  title: string;
+  titleurl: string;
+  url: string;
+}
+
 
 export interface InputDataItem {
   id_task: number;
