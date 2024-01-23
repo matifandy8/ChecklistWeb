@@ -5,7 +5,6 @@ import "./EditTask.styles.css";
 
 const EditTask = ({ id_task, title,titleurl, url, onSave, onDelete }: any) => {
     const [editedTask, setEditedTask] = useState({ id_task, title, titleurl, url });
-    console.log(editedTask);
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
         setEditedTask(prevState => ({ ...prevState, [name]: value }));

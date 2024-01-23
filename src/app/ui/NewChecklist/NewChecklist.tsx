@@ -29,11 +29,21 @@ export default function NewChecklist() {
     setChecklistName(e.target.value);
   };
 
-  const handleSaveChecklist = () => {
+  const handleSaveChecklist = async () => {
     if (!checklistName) {
       return;
     }
     console.log('Checklist saved:', checklistName);
+    try {
+      const { data, error } = await supabase.from('checklists').insert({ name: checklistName, user_id: session?.user?.email }).select();
+      if (error) {
+          console.error('Error saving checklist :', error.message);
+      } else {
+          console.log('Checklist saved successfully:', data);
+      }
+  } catch (error: any) {
+      console.error('Error saving checklist:', error.message);
+  }
 
     // Reset the state
     setShowInput(false);

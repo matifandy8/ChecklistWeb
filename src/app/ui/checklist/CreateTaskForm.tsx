@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup"
 import { useState } from "react";
+import supabase from "@/app/lib/supabase";
 
 interface FormData {
     category: string;
@@ -20,8 +21,8 @@ const requiredSchema = Yup.object().shape({
         .required("Title is required")
         .max(255, "Title is too long"),
     titleUrl: Yup.string()
-    .required("Title is required")
-    .max(255, "Title is too long"),
+        .required("Title is required")
+        .max(255, "Title is too long"),
     url: Yup.string().matches(/^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/, "Invalid URL format")
         .required("URL is required")
         .max(255, "URL is too long")
@@ -34,29 +35,25 @@ export default function CreateTaskForm({ task }: { task: string }) {
         resolver: yupResolver(requiredSchema),
     });
     const [successMessage, setSuccessMessage] = useState('');
-
-    const handleFormSubmit = async (data: FormData) => {
-        // Create a new task for the checklist
-        console.log(data);
-        const newTask = {
-            id: `${Date.now()}`,
-            category: data.category,
-            data: [
-                {
-                    id: `tab${Date.now()}`,
-                    title: data.title,
-                    links: [{ url: data.url, title: data.titleUrl }],
-                },
-            ],
-        };
-        console.log(newTask);
-        
-        if (data.title && data.category && data.url) {
-            // save data to database or post to the api endpoint // api to task with id - task.id 
-            setSuccessMessage('Checklist created successfully');
-            reset();
-        } else {
-            setSuccessMessage('Please fill all the fields');
+    const [errorMessage, setErrorMessage] = useState('');
+    const handleFormSubmit = async (newTask: FormData) => {
+        try {
+            const { data, error } = await supabase.from('tasks').insert({
+                category: newTask.category,
+                title: newTask.title,
+                titleurl: newTask.titleUrl,
+                url: newTask.url,
+                id_checklist: task
+            }).select();
+            if (error) {
+                console.error('Error updating task', error.message);
+                setErrorMessage("Error updating task ");
+            } else {
+                setSuccessMessage('Task added successfully');
+            }
+        } catch (error: any) {
+            console.error('Error updating task', error.message);
+            setErrorMessage("Error updating task");
         }
 
     };
@@ -86,6 +83,7 @@ export default function CreateTaskForm({ task }: { task: string }) {
                     {errors.category && <p className="alert error">{errors.category.message}</p>}
                     {errors.url && <p className="alert error">{errors.url.message}</p>}
                     {successMessage && <p className="alert success">{successMessage}</p>}
+                    {errorMessage && <p className="alert error">{errorMessage}</p>}
                     <button className="nb-button blue" type="submit">Create</button>
                 </form>
             </div>

@@ -11,6 +11,8 @@ import convertData from "@/app/lib/convertData";
 
 export default function page({ params }: { params: { id: string } }) {
     const [checklistJson, setChecklistJson] = useState<any>(null);
+    const [errorMessage, setErrorMessage] = useState<string | null>(null);
+    const [successMessage, setSuccessMessage] = useState<string | null>(null);
 
     const fetchchecklistData = async () => {
         try {
@@ -29,7 +31,7 @@ export default function page({ params }: { params: { id: string } }) {
         fetchchecklistData();
     }, [params.id]);
 
-    const handleTaskSave =  async (editedTask: EditedTask) => {
+    const handleTaskSave = async (editedTask: EditedTask) => {
         try {
             const { id_task, title, titleurl, url } = editedTask;
             const { data, error } = await supabase
@@ -38,8 +40,10 @@ export default function page({ params }: { params: { id: string } }) {
                 .eq('id_task', id_task);
             if (error) {
                 console.error('Error updating task:', error.message);
+                setErrorMessage("Error updating task");
             } else {
                 console.log('Task updated successfully:', data);
+                setSuccessMessage('Task updated successfully');
             }
         } catch (error: any) {
             console.error('Error updating task:', error.message);
@@ -47,7 +51,6 @@ export default function page({ params }: { params: { id: string } }) {
     };
 
     const handleTaskDelete = async (deletedTask: EditedTask) => {
-        console.log(deletedTask.id_task);
         try {
             const { id_task } = deletedTask;
             const { data, error } = await supabase
@@ -56,8 +59,9 @@ export default function page({ params }: { params: { id: string } }) {
                 .eq('id_task', id_task);
             if (error) {
                 console.error('Error deleting task:', error.message);
+                setErrorMessage("Error deleting task");
             } else {
-                console.log('Task deleted successfully:', data);
+                setSuccessMessage('Task deleted successfully');
             }
         } catch (error: any) {
             console.error('Error deleting task:', error.message);
@@ -85,6 +89,8 @@ export default function page({ params }: { params: { id: string } }) {
                                 onDelete={handleTaskDelete}
                             />
                         ))}
+                        {successMessage && <p className="alert success">{successMessage}</p>}
+                        {errorMessage && <p className="alert error">{errorMessage}</p>}
                     </div>
                 ))}
 
