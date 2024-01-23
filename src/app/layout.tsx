@@ -14,6 +14,27 @@ const spaceGrotesk = Space_Grotesk({
   display: "swap",
 });
 
+export const metadata = {
+  title: "ChecklistWeb - Home",
+  description:
+    "platform for developers and teams, offering a seamless checklist management experience.",
+  openGraph: {
+    type: "website",
+    url: "https://localhost:3000",
+    title: "ChecklistWeb - Home",
+    description:
+      "platform for developers and teams, offering a seamless checklist management experience.",
+    images: [
+      {
+        url: "https://localhost:3000/logo.png",
+        width: 800,
+        height: 600,
+        alt: "ChecklistWeb - Home",
+      },
+    ],
+  },
+}
+
 export default function RootLayout({
   children,
 }: {

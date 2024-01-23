@@ -2,29 +2,7 @@ import Link from "next/link";
 import "./Home.styles.css";
 import Image from "next/image";
 import checkIcon from "/public/check-square.png";
-import { Metadata } from "next";
 import WaitlistForm from "@/components/WaitlistForm/WaitlistForm";
-
-export const metadata: Metadata = {
-  title: "ChecklistWeb - Home",
-  description:
-    "platform for developers and teams, offering a seamless checklist management experience.",
-  openGraph: {
-    type: "website",
-    url: "https://localhost:3000",
-    title: "ChecklistWeb - Home",
-    description:
-      "platform for developers and teams, offering a seamless checklist management experience.",
-    images: [
-      {
-        url: "https://localhost:3000/logo.png",
-        width: 800,
-        height: 600,
-        alt: "ChecklistWeb - Home",
-      },
-    ],
-  },
-};
 
 export default function Home() {
   return (
