@@ -60,7 +60,7 @@ export default function page({ params }: { params: { id: string } }) {
                 {checklistJson && checklistJson.length > 0 ? (
                     convertData(checklistJson)?.map((item: any) => (
                         <CategorySection
-                            key={item.id_task}
+                            key={item.category}
                             title={item.category}
                             data={item.data}
                             onCheckboxChange={handleCheckboxChange}
@@ -68,7 +68,7 @@ export default function page({ params }: { params: { id: string } }) {
                         />
                     ))
                 ) : (
-                    <div>
+                    <div className="checklist__empty">
                         <p>No checklist items found</p>
                         <Link className='nb-button blue rounded' href={`/checklists/edit/${params.id}`}>Add Task</Link>
                     </div>
