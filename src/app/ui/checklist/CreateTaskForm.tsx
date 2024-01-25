@@ -6,6 +6,7 @@ import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup"
 import { useState } from "react";
 import supabase from "@/app/lib/supabase";
+import { useRouter } from "next/navigation";
 
 interface FormData {
     category: string;
@@ -31,6 +32,8 @@ const requiredSchema = Yup.object().shape({
 const categories = ["Performance", "Security", "Usability", "Functionality", "Compatibility", "Analytics", "Maintenance", "Legal", "Social Media", "Testing"];
 
 export default function CreateTaskForm({ task }: { task: string }) {
+    const router = useRouter();
+
     const { register, handleSubmit, formState: { errors }, reset } = useForm({
         resolver: yupResolver(requiredSchema),
     });
@@ -50,6 +53,7 @@ export default function CreateTaskForm({ task }: { task: string }) {
                 setErrorMessage("Error updating task ");
             } else {
                 setSuccessMessage('Task added successfully');
+                router.push(`/checklists/${task}`);
             }
         } catch (error: any) {
             console.error('Error updating task', error.message);
