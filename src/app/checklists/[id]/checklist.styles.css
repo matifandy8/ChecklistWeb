@@ -1,14 +1,16 @@
-.checklist{
+.checklist {
     background-color: #f1f6f1;
 }
-h1{
+
+h1 {
     text-align: center;
     font-size: 3rem;
     font-family: var(--font-space-grotesk);
     padding-top: 48px;
     margin-bottom: 24px;
 }
-.checklist__container{
+
+.checklist__container {
     max-width: 1280px;
     margin: 48px auto 0;
     display: flex;
@@ -16,77 +18,102 @@ h1{
     justify-content: center;
     gap: 48px;
 }
+
 .dialog {
     height: fit-content;
 }
 
 
 
-.accordion{
-    box-shadow: none; 
-    border: none; 
+.accordion {
+    box-shadow: none;
+    border: none;
 
 }
-.nb-label{
+
+.nb-label {
     justify-content: space-between;
     padding: 5px 0px;
     color: black;
     text-transform: none;
 }
 
-.title{
+.title {
     font-size: 1.5rem;
     font-family: var(--font-space-grotesk);
     text-align: center;
     padding-bottom: 10px;
 }
 
-.nb-checkbox:checked + input {
-    color: green; 
+.nb-checkbox:checked+input {
+    color: green;
 }
 
-.accordion-content ul li{
+.accordion-content ul li {
     color: var(--tw-prose-links);
     text-decoration: underline;
     font-weight: 500;
 }
 
-.progress-bar{
-    background-color: #f1f1f1!important;
+.progress-bar {
+    background-color: #f1f1f1 !important;
     width: 50%;
     border-radius: 20px;
     filter: drop-shadow(4px 4px 0px #000);
     border: 3px solid #000;
     margin: 20px auto;
 }
-.progress-bar div{
+
+.progress-bar div {
     color: rgb(77, 77, 77);
     border-radius: 20px;
     text-align: center;
     padding: 5px;
 }
-.low{
+
+.low {
     background-color: red;
     transition: width 1s ease;
 }
-.medium{
+
+.medium {
     background-color: yellow;
     transition: width 1s ease;
 }
-.high{
+
+.high {
     background-color: rgb(0, 199, 0);
     transition: width 1s ease;
 }
 
-.checklist__reset{
+.checklist__reset {
     width: 50%;
     margin: 20px auto;
     text-align: center;
 }
-.checklist__completed{
-    margin-top: 20px;
+
+.checklist__completed {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 1.3rem;
+    font-family: var(--font-space-grotesk);
+}
+
+.checklist__createButton {
     text-align: center;
 }
-.checklist__createButton{
-    text-align: center;
+
+.checklist__empty {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    p {
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        font-family: var(--font-space-grotesk);
+        margin-bottom: 20px;
+    }
 }
