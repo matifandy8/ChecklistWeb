@@ -5,11 +5,14 @@ import EditTask from "@/app/ui/checklist/EditTask";
 import "./styles.css";
 import supabase from "@/app/lib/supabase";
 import { useEffect, useState } from "react";
-import { EditedTask, Task } from "@/app/lib/types";
+import { EditedTask } from "@/app/lib/types";
 import convertData from "@/app/lib/convertData";
+import { useRouter } from "next/navigation";
 
 
-export default function page({ params }: { params: { id: string } }) {
+export default function Page({ params }: { params: { id: string } }) {
+    const router = useRouter();
+
     const [checklistJson, setChecklistJson] = useState<any>(null);
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
     const [successMessage, setSuccessMessage] = useState<string | null>(null);
@@ -42,8 +45,8 @@ export default function page({ params }: { params: { id: string } }) {
                 console.error('Error updating task:', error.message);
                 setErrorMessage("Error updating task");
             } else {
-                console.log('Task updated successfully:', data);
                 setSuccessMessage('Task updated successfully');
+                router.push(`/checklists/${id_task}`);
             }
         } catch (error: any) {
             console.error('Error updating task:', error.message);
@@ -62,6 +65,7 @@ export default function page({ params }: { params: { id: string } }) {
                 setErrorMessage("Error deleting task");
             } else {
                 setSuccessMessage('Task deleted successfully');
+                router.push(`/checklists/${deletedTask}`);
             }
         } catch (error: any) {
             console.error('Error deleting task:', error.message);

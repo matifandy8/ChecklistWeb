@@ -9,7 +9,7 @@ import supabase from "@/app/lib/supabase";
 import convertData from "@/app/lib/convertData";
 import Link from "next/link";
 
-export default function page({ params }: { params: { id: string } }) {
+export default function Page({ params }: { params: { id: string } }) {
     const [checkedItems, setCheckedItems] = useState<{ value: string; checked: boolean; }[]>([]);
     const [checklistJson, setChecklistJson] = useState<any>(null);
 
