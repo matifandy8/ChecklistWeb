@@ -65,7 +65,7 @@ export default function Page({ params }: { params: { id: string } }) {
                 setErrorMessage("Error deleting task");
             } else {
                 setSuccessMessage('Task deleted successfully');
-                router.push(`/checklists/${deletedTask.id_task}`);
+                router.push(`/checklists/${params.id}`);
             }
         } catch (error: any) {
             console.error('Error deleting task:', error.message);
