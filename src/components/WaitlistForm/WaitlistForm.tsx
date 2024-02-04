@@ -42,10 +42,6 @@ export default function WaitlistForm() {
         reset();
       } else if (response.status === "subscribed") {
         setSuccessMessage("You are now subscribed");
-        await fetch("/api/send", {
-          method: "POST",
-          body: JSON.stringify({ email: data.email }),
-        });
         reset();
       } else {
         throw new Error(response.message || alert(response.message));
